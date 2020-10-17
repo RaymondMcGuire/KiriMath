@@ -18,7 +18,7 @@
 #include <memory>
 #include <vector>
 
-#ifndef BBR_DOXYGEN
+#ifndef KIRI_DOXYGEN
 
 namespace flatbuffers
 {
@@ -38,7 +38,7 @@ namespace kiri_math
     }
 } // namespace kiri_math
 
-#endif // BBR_DOXYGEN
+#endif // KIRI_DOXYGEN
 
 namespace kiri_math
 {

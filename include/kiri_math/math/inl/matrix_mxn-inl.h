@@ -122,7 +122,7 @@ namespace kiri_math
     template <typename E>
     void MatrixMxN<T>::setRow(size_t i, const VectorExpression<T, E> &row)
     {
-        BBR_MATH_ASSERT(cols() == row.size());
+        KIRI_MATH_ASSERT(cols() == row.size());
 
         const E &e = row();
         parallelFor(kZeroSize, cols(), [&](size_t j) { (*this)(i, j) = e[j]; });
@@ -132,7 +132,7 @@ namespace kiri_math
     template <typename E>
     void MatrixMxN<T>::setColumn(size_t j, const VectorExpression<T, E> &col)
     {
-        BBR_MATH_ASSERT(rows() == col.size());
+        KIRI_MATH_ASSERT(rows() == col.size());
 
         const E &e = col();
         parallelFor(kZeroSize, rows(), [&](size_t i) { (*this)(i, j) = e[i]; });
@@ -400,7 +400,7 @@ namespace kiri_math
     template <typename T>
     void MatrixMxN<T>::invert()
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
 
         // Computes inverse matrix using Gaussian elimination method.
         // https://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/
@@ -563,7 +563,7 @@ namespace kiri_math
     template <typename T>
     T MatrixMxN<T>::trace() const
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
         return parallelReduce(
             kZeroSize, rows(), T(0),
             [&](size_t start, size_t end, T init) {
@@ -580,7 +580,7 @@ namespace kiri_math
     template <typename T>
     T MatrixMxN<T>::determinant() const
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
 
         // Computes inverse matrix using Gaussian elimination method.
         // https://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/

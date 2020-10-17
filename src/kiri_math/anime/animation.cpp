@@ -61,18 +61,18 @@ Animation::~Animation()
 
 void Animation::update(const Frame &frame)
 {
-#ifdef BBR_LOGGING
+#ifdef KIRI_LOGGING
     Timer timer;
 
-    BBR_INFO << "Begin updating frame: " << frame.index
-             << " timeIntervalInSeconds: " << frame.timeIntervalInSeconds
-             << " (1/" << 1.0 / frame.timeIntervalInSeconds
-             << ") seconds";
+    KIRI_INFO << "Begin updating frame: " << frame.index
+              << " timeIntervalInSeconds: " << frame.timeIntervalInSeconds
+              << " (1/" << 1.0 / frame.timeIntervalInSeconds
+              << ") seconds";
 #endif
     onUpdate(frame);
 
-#ifdef BBR_LOGGING
-    BBR_INFO << "End updating frame (took " << timer.durationInSeconds()
-             << " seconds)";
+#ifdef KIRI_LOGGING
+    KIRI_INFO << "End updating frame (took " << timer.durationInSeconds()
+              << " seconds)";
 #endif
 }

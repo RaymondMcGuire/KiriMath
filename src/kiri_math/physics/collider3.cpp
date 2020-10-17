@@ -19,7 +19,7 @@ Collider3::~Collider3() {}
 void Collider3::resolveCollision(double radius, double restitutionCoefficient,
                                  Vector3D *newPosition, Vector3D *newVelocity)
 {
-    BBR_MATH_ASSERT(_surface);
+    KIRI_MATH_ASSERT(_surface);
 
     if (!_surface->isValidGeometry())
     {
@@ -114,7 +114,7 @@ bool Collider3::isPenetrating(const ColliderQueryResult &colliderPoint,
 void Collider3::update(double currentTimeInSeconds,
                        double timeIntervalInSeconds)
 {
-    BBR_MATH_ASSERT(_surface);
+    KIRI_MATH_ASSERT(_surface);
 
     if (!_surface->isValidGeometry())
     {

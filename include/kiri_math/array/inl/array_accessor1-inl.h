@@ -46,14 +46,14 @@ namespace kiri_math
     template <typename T>
     T &ArrayAccessor<T, 1>::at(size_t i)
     {
-        BBR_MATH_ASSERT(i < _size);
+        KIRI_MATH_ASSERT(i < _size);
         return _data[i];
     }
 
     template <typename T>
     const T &ArrayAccessor<T, 1>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size);
+        KIRI_MATH_ASSERT(i < _size);
         return _data[i];
     }
 
@@ -192,7 +192,7 @@ namespace kiri_math
     template <typename T>
     const T &ConstArrayAccessor<T, 1>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size);
+        KIRI_MATH_ASSERT(i < _size);
         return _data[i];
     }
 

@@ -1,5 +1,5 @@
-#ifndef _BBR_POINT_PARTICLE_EMITTER2_H_
-#define _BBR_POINT_PARTICLE_EMITTER2_H_
+#ifndef _KIRI_POINT_PARTICLE_EMITTER2_H_
+#define _KIRI_POINT_PARTICLE_EMITTER2_H_
 
 #include <kiri_math/particle/particle_emitter2.h>
 #include <limits>
@@ -138,4 +138,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_POINT_PARTICLE_EMITTER2_H_
+#endif // _KIRI_POINT_PARTICLE_EMITTER2_H_

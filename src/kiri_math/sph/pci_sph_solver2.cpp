@@ -151,13 +151,13 @@ void PciSphSolver2::accumulatePressureForce(
         }
     }
 
-    BBR_INFO << "Number of PCI iterations: " << maxNumIter;
-    BBR_INFO << "Max density error after PCI iteration: " << maxDensityError;
+    KIRI_INFO << "Number of PCI iterations: " << maxNumIter;
+    KIRI_INFO << "Max density error after PCI iteration: " << maxDensityError;
     if (std::fabs(densityErrorRatio) > _maxDensityErrorRatio)
     {
-        BBR_WARN << "Max density error ratio is greater than the threshold!";
-        BBR_WARN << "Ratio: " << densityErrorRatio
-                 << " Threshold: " << _maxDensityErrorRatio;
+        KIRI_WARN << "Max density error ratio is greater than the threshold!";
+        KIRI_WARN << "Ratio: " << densityErrorRatio
+                  << " Threshold: " << _maxDensityErrorRatio;
     }
 
     // Accumulate pressure force

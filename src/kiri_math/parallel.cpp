@@ -3,10 +3,10 @@
 #include <memory>
 #include <thread>
 
-#if defined(BBR_TASKING_TBB)
+#if defined(KIRI_TASKING_TBB)
 #include <tbb/task_arena.h>
 #include <tbb/task_scheduler_init.h>
-#elif defined(BBR_TASKING_OPENMP)
+#elif defined(KIRI_TASKING_OPENMP)
 #include <omp.h>
 #endif
 
@@ -17,7 +17,7 @@ namespace kiri_math
 
     void setMaxNumberOfThreads(unsigned int numThreads)
     {
-#if defined(BBR_TASKING_TBB)
+#if defined(KIRI_TASKING_TBB)
         static std::unique_ptr<tbb::task_scheduler_init> tbbInit;
         if (!tbbInit.get())
             tbbInit.reset(new tbb::task_scheduler_init(numThreads));
@@ -26,7 +26,7 @@ namespace kiri_math
             tbbInit->terminate();
             tbbInit->initialize(numThreads);
         }
-#elif defined(BBR_TASKING_OPENMP)
+#elif defined(KIRI_TASKING_OPENMP)
         omp_set_num_threads(numThreads);
 #endif
         sMaxNumberOfThreads = std::max(numThreads, 1u);

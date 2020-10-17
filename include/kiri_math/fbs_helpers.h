@@ -1,5 +1,5 @@
-#ifndef SRC_BBR_FBS_HELPERS_H_
-#define SRC_BBR_FBS_HELPERS_H_
+#ifndef SRC_KIRI_FBS_HELPERS_H_
+#define SRC_KIRI_FBS_HELPERS_H_
 
 #include <generated/basic_types_generated.h>
 #include <kiri_math/math/size2.h>
@@ -97,4 +97,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // SRC_BBR_FBS_HELPERS_H_
+#endif // SRC_KIRI_FBS_HELPERS_H_

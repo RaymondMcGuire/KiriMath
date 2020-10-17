@@ -18,7 +18,7 @@ namespace kiri_math
                                                   const VE &v)
         : _m(m), _v(v)
     {
-        BBR_MATH_ASSERT(_m.cols() == _v.size());
+        KIRI_MATH_ASSERT(_m.cols() == _v.size());
     }
 
     template <typename T, typename VE>
@@ -189,7 +189,7 @@ namespace kiri_math
         auto rowIter = lst.begin();
         for (size_t i = 0; i < numRows; ++i)
         {
-            BBR_MATH_ASSERT(numCols == rowIter->size());
+            KIRI_MATH_ASSERT(numCols == rowIter->size());
             _rowPointers.push_back(_nonZeros.size());
 
             auto colIter = rowIter->begin();
@@ -281,7 +281,7 @@ namespace kiri_math
     void MatrixCsr<T>::addRow(const NonZeroContainerType &nonZeros,
                               const IndexContainerType &columnIndices)
     {
-        BBR_MATH_ASSERT(nonZeros.size() == columnIndices.size());
+        KIRI_MATH_ASSERT(nonZeros.size() == columnIndices.size());
 
         ++_size.x;
 
@@ -798,7 +798,7 @@ namespace kiri_math
     template <typename T>
     T MatrixCsr<T>::trace() const
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
         return parallelReduce(
             kZeroSize, rows(), T(0),
             [&](size_t start, size_t end, T init) {
@@ -976,7 +976,7 @@ namespace kiri_math
     template <typename Op>
     MatrixCsr<T> MatrixCsr<T>::binaryOp(const MatrixCsr &m, Op op) const
     {
-        BBR_MATH_ASSERT(_size == m._size);
+        KIRI_MATH_ASSERT(_size == m._size);
 
         MatrixCsr ret;
 
@@ -1010,7 +1010,7 @@ namespace kiri_math
                 }
                 else
                 {
-                    BBR_MATH_ASSERT(*colIterA == *colIterB);
+                    KIRI_MATH_ASSERT(*colIterA == *colIterB);
                     col.push_back(*colIterB);
                     nnz.push_back(op(*nnzIterA, *nnzIterB));
                     ++colIterA;

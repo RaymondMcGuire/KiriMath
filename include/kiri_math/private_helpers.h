@@ -22,7 +22,7 @@
         });
 #endif
 
-#ifdef BBR_MATH_WINDOWS
+#ifdef KIRI_MATH_WINDOWS
 #include <Windows.h>
 #include <exception>
 #include <string>
@@ -52,6 +52,6 @@ inline void throwIfFailed(HRESULT hr)
     }
 #endif
 
-#endif // BBR_MATH_WINDOWS
+#endif // KIRI_MATH_WINDOWS
 
 #endif // _KIRI_MATH_PRIVATE_HELPERS_H_

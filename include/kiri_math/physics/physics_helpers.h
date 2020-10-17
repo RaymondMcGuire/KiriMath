@@ -4,8 +4,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2020-04-19 03:36:25 
  */
-#ifndef _BBR_PHYSICS_HELPERS_H_
-#define _BBR_PHYSICS_HELPERS_H_
+#ifndef _KIRI_PHYSICS_HELPERS_H_
+#define _KIRI_PHYSICS_HELPERS_H_
 
 #include <kiri_math/math/vector3.h>
 #include <algorithm>
@@ -71,4 +71,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_PHYSICS_HELPERS_H_
+#endif // _KIRI_PHYSICS_HELPERS_H_

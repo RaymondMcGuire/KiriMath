@@ -4,8 +4,8 @@
  * @Last Modified by: Xu.Wang
  * @Last Modified time: 2020-05-29 20:57:13
  */
-#ifndef _BBR_BCC_LATTICE_POINT_GENERATOR_H_
-#define _BBR_BCC_LATTICE_POINT_GENERATOR_H_
+#ifndef _KIRI_BCC_LATTICE_POINT_GENERATOR_H_
+#define _KIRI_BCC_LATTICE_POINT_GENERATOR_H_
 
 #include <kiri_math/math/point_generator3.h>
 
@@ -50,4 +50,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_BCC_LATTICE_POINT_GENERATOR_H_
+#endif // _KIRI_BCC_LATTICE_POINT_GENERATOR_H_

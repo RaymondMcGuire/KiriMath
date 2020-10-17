@@ -21,7 +21,7 @@ namespace kiri_math
     class FaceCenteredGrid2 final : public VectorGrid2
     {
     public:
-        BBR_GRID2_TYPE_NAME(FaceCenteredGrid2)
+        KIRI_GRID2_TYPE_NAME(FaceCenteredGrid2)
 
         class Builder;
 

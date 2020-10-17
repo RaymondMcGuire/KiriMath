@@ -607,7 +607,7 @@ bool TriangleMesh3::readObj(std::istream *strm)
     // `err` may contain warning message.
     if (!err.empty())
     {
-        BBR_ERROR << err;
+        KIRI_ERROR << err;
         return false;
     }
 
@@ -762,7 +762,7 @@ void TriangleMesh3::buildWindingNumbers() const
             WindingNumberGatherData result;
 
             auto iter = _bvh.itemOfNode(nodeIndex);
-            BBR_MATH_ASSERT(iter != _bvh.end());
+            KIRI_MATH_ASSERT(iter != _bvh.end());
 
             Triangle3 tri = triangle(*iter);
             double area = tri.area();

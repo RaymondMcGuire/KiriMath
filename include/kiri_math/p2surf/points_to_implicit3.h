@@ -1,5 +1,5 @@
-#ifndef _BBR_POINTS_TO_IMPLICIT3_H_
-#define _BBR_POINTS_TO_IMPLICIT3_H_
+#ifndef _KIRI_POINTS_TO_IMPLICIT3_H_
+#define _KIRI_POINTS_TO_IMPLICIT3_H_
 
 #include <kiri_math/array/array_accessor1.h>
 #include <kiri_math/math/scalar_grid3.h>

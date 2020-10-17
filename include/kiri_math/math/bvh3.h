@@ -1,5 +1,5 @@
-#ifndef _BBR_BVH3_H_
-#define _BBR_BVH3_H_
+#ifndef _KIRI_BVH3_H_
+#define _KIRI_BVH3_H_
 
 #include <kiri_math/query/intersection_query_engine3.h>
 #include <kiri_math/query/nearest_neighbor_query_engine3.h>
@@ -136,4 +136,4 @@ namespace kiri_math
 
 #include "inl/bvh3-inl.h"
 
-#endif // _BBR_BVH3_H_
+#endif // _KIRI_BVH3_H_

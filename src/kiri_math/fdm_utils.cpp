@@ -12,7 +12,7 @@ namespace kiri_math
     {
         const Size2 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
         double left = data((i > 0) ? i - 1 : i, j);
         double right = data((i + 1 < ds.x) ? i + 1 : i, j);
@@ -30,7 +30,7 @@ namespace kiri_math
     {
         const Size2 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
         Vector2D left = data((i > 0) ? i - 1 : i, j);
         Vector2D right = data((i + 1 < ds.x) ? i + 1 : i, j);
@@ -52,7 +52,7 @@ namespace kiri_math
     {
         const Size3 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
         double left = data((i > 0) ? i - 1 : i, j, k);
         double right = data((i + 1 < ds.x) ? i + 1 : i, j, k);
@@ -73,7 +73,7 @@ namespace kiri_math
     {
         const Size3 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
         Vector3D left = data((i > 0) ? i - 1 : i, j, k);
         Vector3D right = data((i + 1 < ds.x) ? i + 1 : i, j, k);
@@ -98,7 +98,7 @@ namespace kiri_math
         const double center = data(i, j);
         const Size2 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
         double dleft = 0.0;
         double dright = 0.0;
@@ -135,7 +135,7 @@ namespace kiri_math
         const Vector2D center = data(i, j);
         const Size2 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
         Vector2D dleft;
         Vector2D dright;
@@ -173,7 +173,7 @@ namespace kiri_math
         const double center = data(i, j, k);
         const Size3 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
         double dleft = 0.0;
         double dright = 0.0;
@@ -222,7 +222,7 @@ namespace kiri_math
         const Vector3D center = data(i, j, k);
         const Size3 ds = data.size();
 
-        BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+        KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
         Vector3D dleft;
         Vector3D dright;

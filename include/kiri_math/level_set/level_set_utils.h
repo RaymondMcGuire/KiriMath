@@ -1,5 +1,5 @@
-#ifndef _BBR_LEVEL_SET_UTILS_H_
-#define _BBR_LEVEL_SET_UTILS_H_
+#ifndef _KIRI_LEVEL_SET_UTILS_H_
+#define _KIRI_LEVEL_SET_UTILS_H_
 
 #include <kiri_math/platform.h>
 
@@ -100,4 +100,4 @@ namespace kiri_math
 
 #include "inl/level_set_utils-inl.h"
 
-#endif // _BBR_LEVEL_SET_UTILS_H_
+#endif // _KIRI_LEVEL_SET_UTILS_H_

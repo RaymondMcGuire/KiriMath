@@ -307,7 +307,7 @@ namespace kiri_math
     template <typename E>
     T VectorN<T>::distanceSquaredTo(const E &other) const
     {
-        BBR_MATH_ASSERT(size() == other.size());
+        KIRI_MATH_ASSERT(size() == other.size());
         return parallelReduce(
             kZeroSize, size(), T(0),
             [&](size_t start, size_t end, T init) {
@@ -423,7 +423,7 @@ namespace kiri_math
     template <typename E>
     T VectorN<T>::dot(const E &v) const
     {
-        BBR_MATH_ASSERT(size() == v.size());
+        KIRI_MATH_ASSERT(size() == v.size());
         return parallelReduce(
             kZeroSize, size(), T(0),
             [&](size_t start, size_t end, T init) {

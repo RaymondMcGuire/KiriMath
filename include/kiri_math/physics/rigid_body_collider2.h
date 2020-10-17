@@ -1,5 +1,5 @@
-#ifndef _BBR_RIGID_BODY_COLLIDER2_H_
-#define _BBR_RIGID_BODY_COLLIDER2_H_
+#ifndef _KIRI_RIGID_BODY_COLLIDER2_H_
+#define _KIRI_RIGID_BODY_COLLIDER2_H_
 
 #include <kiri_math/physics/collider2.h>
 
@@ -71,4 +71,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_RIGID_BODY_COLLIDER2_H_
+#endif // _KIRI_RIGID_BODY_COLLIDER2_H_

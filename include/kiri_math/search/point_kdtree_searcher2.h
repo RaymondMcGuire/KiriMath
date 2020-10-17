@@ -20,7 +20,7 @@ namespace kiri_math
     class PointKdTreeSearcher2 final : public PointNeighborSearcher2
     {
     public:
-        BBR_NEIGHBOR_SEARCHER2_TYPE_NAME(PointKdTreeSearcher2)
+        KIRI_NEIGHBOR_SEARCHER2_TYPE_NAME(PointKdTreeSearcher2)
 
         class Builder;
 

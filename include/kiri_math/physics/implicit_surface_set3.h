@@ -1,5 +1,5 @@
-#ifndef _BBR_IMPLICIT_SURFACE_SET3_H_
-#define _BBR_IMPLICIT_SURFACE_SET3_H_
+#ifndef _KIRI_IMPLICIT_SURFACE_SET3_H_
+#define _KIRI_IMPLICIT_SURFACE_SET3_H_
 
 #include <kiri_math/math/bvh3.h>
 #include <kiri_math/physics/implicit_surface3.h>
@@ -122,4 +122,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_IMPLICIT_SURFACE_SET3_H_
+#endif // _KIRI_IMPLICIT_SURFACE_SET3_H_

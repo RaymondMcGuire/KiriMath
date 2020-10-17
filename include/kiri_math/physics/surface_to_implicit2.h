@@ -1,5 +1,5 @@
-#ifndef _BBR_SURFACE_TO_IMPLICIT2_H_
-#define _BBR_SURFACE_TO_IMPLICIT2_H_
+#ifndef _KIRI_SURFACE_TO_IMPLICIT2_H_
+#define _KIRI_SURFACE_TO_IMPLICIT2_H_
 
 #include <kiri_math/physics/implicit_surface2.h>
 #include <memory>
@@ -93,4 +93,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_SURFACE_TO_IMPLICIT2_H_
+#endif // _KIRI_SURFACE_TO_IMPLICIT2_H_

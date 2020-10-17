@@ -123,8 +123,8 @@ namespace kiri_math
     {
         const Size2 size = input.size();
 
-        BBR_MATH_ASSERT(size == valid.size());
-        BBR_MATH_ASSERT(size == output.size());
+        KIRI_MATH_ASSERT(size == valid.size());
+        KIRI_MATH_ASSERT(size == output.size());
 
         Array2<char> valid0(size);
         Array2<char> valid1(size);
@@ -191,8 +191,8 @@ namespace kiri_math
     {
         const Size3 size = input.size();
 
-        BBR_MATH_ASSERT(size == valid.size());
-        BBR_MATH_ASSERT(size == output.size());
+        KIRI_MATH_ASSERT(size == valid.size());
+        KIRI_MATH_ASSERT(size == output.size());
 
         Array3<char> valid0(size);
         Array3<char> valid1(size);

@@ -70,7 +70,7 @@ inline double solveQuadNearBoundary(
         }
     }
 
-    BBR_MATH_ASSERT(hasX || hasY);
+    KIRI_MATH_ASSERT(hasX || hasY);
 
     double distToBndX = gridSpacing.x * std::abs(output(i, j)) / (std::abs(output(i, j)) + std::abs(phiX));
 
@@ -145,7 +145,7 @@ inline double solveQuad(
         }
     }
 
-    BBR_MATH_ASSERT(hasX || hasY);
+    KIRI_MATH_ASSERT(hasX || hasY);
 
     double solution = 0.0;
 
@@ -196,7 +196,7 @@ void FmmLevelSetSolver2::reinitialize(
     double maxDistance,
     ScalarGrid2 *outputSdf)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!inputSdf.hasSameShape(*outputSdf));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!inputSdf.hasSameShape(*outputSdf));
 
     Size2 size = inputSdf.dataSize();
     Vector2D gridSpacing = inputSdf.gridSpacing();
@@ -350,7 +350,7 @@ void FmmLevelSetSolver2::extrapolate(
     double maxDistance,
     ScalarGrid2 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     Array2<double> sdfGrid(input.dataSize());
     auto pos = input.dataPosition();
@@ -372,7 +372,7 @@ void FmmLevelSetSolver2::extrapolate(
     double maxDistance,
     CollocatedVectorGrid2 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     Array2<double> sdfGrid(input.dataSize());
     auto pos = input.dataPosition();
@@ -418,7 +418,7 @@ void FmmLevelSetSolver2::extrapolate(
     double maxDistance,
     FaceCenteredGrid2 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     const Vector2D gridSpacing = input.gridSpacing();
 
@@ -621,7 +621,7 @@ void FmmLevelSetSolver2::extrapolate(
             }
         }
 
-        BBR_MATH_ASSERT(count > 0.0);
+        KIRI_MATH_ASSERT(count > 0.0);
 
         output(i, j) = sum / count;
         markers(i, j) = kKnown;

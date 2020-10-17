@@ -111,7 +111,7 @@ namespace kiri_math
         auto now =
             std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
         char timeStr[20];
-#ifdef BBR_MATH_WINDOWS
+#ifdef KIRI_MATH_WINDOWS
         tm time;
         localtime_s(&time, &now);
         strftime(timeStr, sizeof(timeStr), "%F %T", &time);

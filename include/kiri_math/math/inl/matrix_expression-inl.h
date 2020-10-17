@@ -212,7 +212,7 @@ namespace kiri_math
     MatrixBinaryOp<T, E1, E2, Op>::MatrixBinaryOp(const E1 &u, const E2 &v)
         : _u(u), _v(v)
     {
-        BBR_MATH_ASSERT(u.size() == v.size());
+        KIRI_MATH_ASSERT(u.size() == v.size());
     }
 
     template <typename T, typename E1, typename E2, typename Op>
@@ -275,7 +275,7 @@ namespace kiri_math
     MatrixVectorMul<T, ME, VE>::MatrixVectorMul(const ME &m, const VE &v)
         : _m(m), _v(v)
     {
-        BBR_MATH_ASSERT(_m.cols() == _v.size());
+        KIRI_MATH_ASSERT(_m.cols() == _v.size());
     }
 
     template <typename T, typename ME, typename VE>
@@ -301,7 +301,7 @@ namespace kiri_math
     template <typename T, typename E1, typename E2>
     MatrixMul<T, E1, E2>::MatrixMul(const E1 &u, const E2 &v) : _u(u), _v(v)
     {
-        BBR_MATH_ASSERT(_u.cols() == _v.rows());
+        KIRI_MATH_ASSERT(_u.cols() == _v.rows());
     }
 
     template <typename T, typename E1, typename E2>

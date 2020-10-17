@@ -35,8 +35,8 @@ namespace kiri_math
         ssize_t i, j;
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
-                        _gridSpacing.y > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
+                         _gridSpacing.y > std::numeric_limits<R>::epsilon());
         Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
         ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
@@ -58,8 +58,8 @@ namespace kiri_math
         ssize_t i, j;
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
-                        _gridSpacing.y > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
+                         _gridSpacing.y > std::numeric_limits<R>::epsilon());
         Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
         ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
@@ -109,8 +109,8 @@ namespace kiri_math
         ssize_t i, j;
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
-                        _gridSpacing.y > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
+                         _gridSpacing.y > std::numeric_limits<R>::epsilon());
         Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
         ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
@@ -140,7 +140,7 @@ namespace kiri_math
         ssize_t i, j;
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > 0.0 && _gridSpacing.y > 0.0);
+        KIRI_MATH_ASSERT(_gridSpacing.x > 0.0 && _gridSpacing.y > 0.0);
 
         Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
@@ -173,7 +173,7 @@ namespace kiri_math
         ssize_t i, j;
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > 0.0 && _gridSpacing.y > 0.0);
+        KIRI_MATH_ASSERT(_gridSpacing.x > 0.0 && _gridSpacing.y > 0.0);
 
         const Vector2<R> normalizedX = (x - _origin) * _invGridSpacing;
 
@@ -241,8 +241,8 @@ namespace kiri_math
         const ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
         R fx, fy;
 
-        BBR_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
-                        _gridSpacing.y > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
+                         _gridSpacing.y > std::numeric_limits<R>::epsilon());
         const Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
         getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);

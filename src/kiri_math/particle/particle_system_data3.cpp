@@ -216,11 +216,11 @@ void ParticleSystemData3::addParticles(
     const ConstArrayAccessor1<Vector3D> &newForces,
     const ConstArrayAccessor1<double> &newLifeTimes)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(
+    KIRI_MATH_THROW_INVALID_ARG_IF(
         newVelocities.size() > 0 && newVelocities.size() != newPositions.size());
-    BBR_MATH_THROW_INVALID_ARG_IF(
+    KIRI_MATH_THROW_INVALID_ARG_IF(
         newForces.size() > 0 && newForces.size() != newPositions.size());
-    BBR_MATH_THROW_INVALID_ARG_IF(
+    KIRI_MATH_THROW_INVALID_ARG_IF(
         newLifeTimes.size() > 0 && newLifeTimes.size() != newPositions.size());
 
     size_t newNumberOfParticles = newPositions.size();
@@ -294,9 +294,9 @@ void ParticleSystemData3::buildNeighborSearcher(double maxSearchRadius)
 
     _neighborSearcher->build(positions());
 
-    BBR_INFO << "Building neighbor searcher took: "
-             << timer.durationInSeconds()
-             << " seconds";
+    KIRI_INFO << "Building neighbor searcher took: "
+              << timer.durationInSeconds()
+              << " seconds";
 }
 
 void ParticleSystemData3::buildNeighborLists(double maxSearchRadius)
@@ -322,9 +322,9 @@ void ParticleSystemData3::buildNeighborLists(double maxSearchRadius)
             });
     }
 
-    BBR_INFO << "Building neighbor list took: "
-             << timer.durationInSeconds()
-             << " seconds";
+    KIRI_INFO << "Building neighbor list took: "
+              << timer.durationInSeconds()
+              << " seconds";
 }
 
 //! flat_buffers

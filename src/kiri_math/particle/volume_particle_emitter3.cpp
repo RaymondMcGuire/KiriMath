@@ -151,9 +151,9 @@ void VolumeParticleEmitter3::emit(const ParticleSystemData3Ptr &particles,
         });
     }
 
-    BBR_INFO << "Number of newly generated particles: " << numNewParticles;
-    BBR_INFO << "Number of total generated particles: "
-             << _numberOfEmittedParticles;
+    KIRI_INFO << "Number of newly generated particles: " << numNewParticles;
+    KIRI_INFO << "Number of total generated particles: "
+              << _numberOfEmittedParticles;
 
     newVelocities->resize(newPositions->size());
     newVelocities->parallelForEachIndex([&](size_t i) {

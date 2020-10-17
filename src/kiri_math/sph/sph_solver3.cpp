@@ -151,9 +151,9 @@ void SphSolver3::onBeginAdvanceTimeStep(double timeStepInSeconds)
     particles->buildNeighborLists();
     particles->updateDensities();
 
-    BBR_INFO << "Building neighbor lists and updating densities took "
-             << timer.durationInSeconds()
-             << " seconds";
+    KIRI_INFO << "Building neighbor lists and updating densities took "
+              << timer.durationInSeconds()
+              << " seconds";
 }
 
 void SphSolver3::onEndAdvanceTimeStep(double timeStepInSeconds)
@@ -170,9 +170,9 @@ void SphSolver3::onEndAdvanceTimeStep(double timeStepInSeconds)
         maxDensity = std::max(maxDensity, densities[i]);
     }
 
-    BBR_INFO << "Max density: " << maxDensity << " "
-             << "Max density / target density ratio: "
-             << maxDensity / particles->targetDensity();
+    KIRI_INFO << "Max density: " << maxDensity << " "
+              << "Max density / target density ratio: "
+              << maxDensity / particles->targetDensity();
 }
 
 void SphSolver3::accumulateNonPressureForces(double timeStepInSeconds)

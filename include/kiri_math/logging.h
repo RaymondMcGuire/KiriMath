@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 
-//#define BBR_LOGGING
+//#define KIRI_LOGGING
 
 namespace kiri_math
 {
@@ -94,16 +94,16 @@ namespace kiri_math
     //! Debug-level logger.
     extern Logger debugLogger;
 
-#define BBR_INFO                                                          \
+#define KIRI_INFO                                                         \
     (Logger(LoggingLevel::Info) << Logging::getHeader(LoggingLevel::Info) \
                                 << "[" << __FILE__ << ":" << __LINE__ << " (" << __func__ << ")] ")
-#define BBR_WARN                                                          \
+#define KIRI_WARN                                                         \
     (Logger(LoggingLevel::Warn) << Logging::getHeader(LoggingLevel::Warn) \
                                 << "[" << __FILE__ << ":" << __LINE__ << " (" << __func__ << ")] ")
-#define BBR_ERROR                                                           \
+#define KIRI_ERROR                                                          \
     (Logger(LoggingLevel::Error) << Logging::getHeader(LoggingLevel::Error) \
                                  << "[" << __FILE__ << ":" << __LINE__ << " (" << __func__ << ")] ")
-#define BBR_DEBUG                                                           \
+#define KIRI_DEBUG                                                          \
     (Logger(LoggingLevel::Debug) << Logging::getHeader(LoggingLevel::Debug) \
                                  << "[" << __FILE__ << ":" << __LINE__ << " (" << __func__ << ")] ")
 

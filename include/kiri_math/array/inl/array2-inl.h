@@ -71,7 +71,7 @@ namespace kiri_math
         auto rowIter = lst.begin();
         for (size_t j = 0; j < height; ++j)
         {
-            BBR_MATH_ASSERT(width == rowIter->size());
+            KIRI_MATH_ASSERT(width == rowIter->size());
             auto colIter = rowIter->begin();
             for (size_t i = 0; i < width; ++i)
             {
@@ -117,14 +117,14 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 2>::at(size_t i)
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y);
         return _data[i];
     }
 
     template <typename T>
     const T &Array<T, 2>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y);
         return _data[i];
     }
 
@@ -143,14 +143,14 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 2>::at(size_t i, size_t j)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y);
         return _data[i + _size.x * j];
     }
 
     template <typename T>
     const T &Array<T, 2>::at(size_t i, size_t j) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y);
         return _data[i + _size.x * j];
     }
 
@@ -270,28 +270,28 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 2>::operator()(size_t i, size_t j)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y);
         return _data[i + _size.x * j];
     }
 
     template <typename T>
     const T &Array<T, 2>::operator()(size_t i, size_t j) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y);
         return _data[i + _size.x * j];
     }
 
     template <typename T>
     T &Array<T, 2>::operator()(const Point2UI &pt)
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y);
         return _data[pt.x + _size.x * pt.y];
     }
 
     template <typename T>
     const T &Array<T, 2>::operator()(const Point2UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y);
         return _data[pt.x + _size.x * pt.y];
     }
 

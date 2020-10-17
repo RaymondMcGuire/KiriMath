@@ -4,8 +4,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2020-03-28 01:39:06 
  */
-#ifndef _BBR_SPH_KERNELS2_H_
-#define _BBR_SPH_KERNELS2_H_
+#ifndef _KIRI_SPH_KERNELS2_H_
+#define _KIRI_SPH_KERNELS2_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/math/vector2.h>
@@ -114,4 +114,4 @@ namespace kiri_math
 
 #include "inl/sph_kernels2-inl.h"
 
-#endif // _BBR_SPH_KERNELS2_H_
+#endif // _KIRI_SPH_KERNELS2_H_

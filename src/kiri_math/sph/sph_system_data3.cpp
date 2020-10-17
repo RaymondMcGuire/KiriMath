@@ -282,7 +282,7 @@ namespace kiri_math
             maxNumberDensity = std::max(maxNumberDensity, sum);
         }
 
-        BBR_MATH_ASSERT(maxNumberDensity > 0);
+        KIRI_MATH_ASSERT(maxNumberDensity > 0);
 
         double newMass = _targetDensity / maxNumberDensity;
 

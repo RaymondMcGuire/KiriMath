@@ -1,5 +1,5 @@
-#ifndef _BBR_PARTICLE_EMITTER_SET2_H_
-#define _BBR_PARTICLE_EMITTER_SET2_H_
+#ifndef _KIRI_PARTICLE_EMITTER_SET2_H_
+#define _KIRI_PARTICLE_EMITTER_SET2_H_
 
 #include <kiri_math/particle/particle_emitter2.h>
 #include <tuple>
@@ -66,4 +66,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_PARTICLE_EMITTER_SET2_H_
+#endif // _KIRI_PARTICLE_EMITTER_SET2_H_

@@ -1,5 +1,5 @@
-#ifndef _BBR_LEVEL_SET_SOLVER3_H_
-#define _BBR_LEVEL_SET_SOLVER3_H_
+#ifndef _KIRI_LEVEL_SET_SOLVER3_H_
+#define _KIRI_LEVEL_SET_SOLVER3_H_
 
 #include <kiri_math/math/collocated_vector_grid3.h>
 #include <kiri_math/math/face_centered_grid3.h>
@@ -81,4 +81,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // INCLUDE_BBR_LEVEL_SET_SOLVER3_H_
+#endif // INCLUDE_KIRI_LEVEL_SET_SOLVER3_H_

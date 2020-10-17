@@ -11,12 +11,12 @@
 #include <future>
 #include <vector>
 
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
 #include <tbb/parallel_for.h>
 #include <tbb/parallel_reduce.h>
 #include <tbb/parallel_sort.h>
 #include <tbb/task.h>
-#elif defined(BBR_TASKING_CPP11THREADS)
+#elif defined(KIRI_TASKING_CPP11THREADS)
 #include <thread>
 #endif
 
@@ -32,7 +32,7 @@ namespace kiri_math
         template <typename TASK_T>
         inline void schedule(TASK_T &&fcn)
         {
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
             struct LocalTBBTask : public tbb::task
             {
                 TASK_T func;
@@ -47,7 +47,7 @@ namespace kiri_math
             auto *tbb_node = new (tbb::task::allocate_root())
                 LocalTBBTask(std::forward<TASK_T>(fcn));
             tbb::task::enqueue(*tbb_node);
-#elif defined(BBR_TASKING_CPP11THREADS)
+#elif defined(KIRI_TASKING_CPP11THREADS)
             std::thread thread(fcn);
             thread.detach();
 #else // OpenMP or Serial --> synchronous!
@@ -193,7 +193,7 @@ namespace kiri_math
             return;
         }
 
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
         if (policy == ExecutionPolicy::kParallel)
         {
             tbb::parallel_for(start, end, func);
@@ -206,7 +206,7 @@ namespace kiri_math
             }
         }
 
-#elif BBR_TASKING_CPP11THREADS
+#elif KIRI_TASKING_CPP11THREADS
         // Estimate number of threads in the pool
         unsigned int numThreadsHint = maxNumberOfThreads();
         const unsigned int numThreads =
@@ -254,7 +254,7 @@ namespace kiri_math
         }
 #else
 
-#ifdef BBR_TASKING_OPENMP
+#ifdef KIRI_TASKING_OPENMP
         if (policy == ExecutionPolicy::kParallel)
         {
 #pragma omp parallel for
@@ -275,12 +275,12 @@ namespace kiri_math
                 func(i);
             }
         }
-#else  // BBR_TASKING_OPENMP
+#else  // KIRI_TASKING_OPENMP
         for (auto i = start; i < end; ++i)
         {
             func(i);
         }
-#endif // BBR_TASKING_OPENMP
+#endif // KIRI_TASKING_OPENMP
 
 #endif
     }
@@ -294,7 +294,7 @@ namespace kiri_math
             return;
         }
 
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
         if (policy == ExecutionPolicy::kParallel)
         {
             tbb::parallel_for(tbb::blocked_range<IndexType>(start, end),
@@ -423,7 +423,7 @@ namespace kiri_math
             return identity;
         }
 
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
         if (policy == ExecutionPolicy::kParallel)
         {
             return tbb::parallel_reduce(
@@ -509,7 +509,7 @@ namespace kiri_math
             return;
         }
 
-#ifdef BBR_TASKING_TBB
+#ifdef KIRI_TASKING_TBB
         if (policy == ExecutionPolicy::kParallel)
         {
             tbb::parallel_sort(begin, end, compareFunction);

@@ -6,8 +6,8 @@
  * @Last Modified time: 2020-04-19 03:50:41
  */
 
-#ifndef _BBR_DETAIL_SPH_KERNELS3_INL_H_
-#define _BBR_DETAIL_SPH_KERNELS3_INL_H_
+#ifndef _KIRI_DETAIL_SPH_KERNELS3_INL_H_
+#define _KIRI_DETAIL_SPH_KERNELS3_INL_H_
 
 #include <kiri_math/constants.h>
 
@@ -378,4 +378,4 @@ namespace kiri_math
     }
 } // namespace kiri_math
 
-#endif // _BBR_DETAIL_SPH_KERNELS3_INL_H_
+#endif // _KIRI_DETAIL_SPH_KERNELS3_INL_H_

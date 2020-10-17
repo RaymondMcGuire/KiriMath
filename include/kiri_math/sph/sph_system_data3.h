@@ -4,8 +4,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2020-03-31 15:01:56 
  */
-#ifndef _BBR_SPH_SYSTEM_DATA3_H_
-#define _BBR_SPH_SYSTEM_DATA3_H_
+#ifndef _KIRI_SPH_SYSTEM_DATA3_H_
+#define _KIRI_SPH_SYSTEM_DATA3_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/particle/particle_system_data3.h>
@@ -198,4 +198,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_SPH_SYSTEM_DATA3_H_
+#endif // _KIRI_SPH_SYSTEM_DATA3_H_

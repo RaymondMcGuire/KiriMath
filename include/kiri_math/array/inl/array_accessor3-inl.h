@@ -55,14 +55,14 @@ namespace kiri_math
     template <typename T>
     T &ArrayAccessor<T, 3>::at(size_t i)
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y * _size.z);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y * _size.z);
         return _data[i];
     }
 
     template <typename T>
     const T &ArrayAccessor<T, 3>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y * _size.z);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y * _size.z);
         return _data[i];
     }
 
@@ -105,28 +105,28 @@ namespace kiri_math
     template <typename T>
     T &ArrayAccessor<T, 3>::operator()(const Point3UI &pt)
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return _data[pt.x + _size.x * (pt.y + _size.y * pt.z)];
     }
 
     template <typename T>
     const T &ArrayAccessor<T, 3>::operator()(const Point3UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return _data[pt.x + _size.x * (pt.y + _size.y * pt.z)];
     }
 
     template <typename T>
     T &ArrayAccessor<T, 3>::at(size_t i, size_t j, size_t k)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     const T &ArrayAccessor<T, 3>::at(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
@@ -220,14 +220,14 @@ namespace kiri_math
     template <typename T>
     size_t ArrayAccessor<T, 3>::index(const Point3UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return pt.x + _size.x * (pt.y + _size.y * pt.z);
     }
 
     template <typename T>
     size_t ArrayAccessor<T, 3>::index(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return i + _size.x * (j + _size.y * k);
     }
 
@@ -246,14 +246,14 @@ namespace kiri_math
     template <typename T>
     T &ArrayAccessor<T, 3>::operator()(size_t i, size_t j, size_t k)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     const T &ArrayAccessor<T, 3>::operator()(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
@@ -309,7 +309,7 @@ namespace kiri_math
     template <typename T>
     const T &ConstArrayAccessor<T, 3>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y * _size.z);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y * _size.z);
         return _data[i];
     }
 
@@ -322,7 +322,7 @@ namespace kiri_math
     template <typename T>
     const T &ConstArrayAccessor<T, 3>::at(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
@@ -411,14 +411,14 @@ namespace kiri_math
     template <typename T>
     size_t ConstArrayAccessor<T, 3>::index(const Point3UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return pt.x + _size.x * (pt.y + _size.y * pt.z);
     }
 
     template <typename T>
     size_t ConstArrayAccessor<T, 3>::index(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return i + _size.x * (j + _size.y * k);
     }
 
@@ -432,14 +432,14 @@ namespace kiri_math
     const T &ConstArrayAccessor<T, 3>::operator()(
         size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     const T &ConstArrayAccessor<T, 3>::operator()(const Point3UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return _data[pt.x + _size.x * (pt.y + _size.y * pt.z)];
     }
 

@@ -1,5 +1,5 @@
-#ifndef _BBR_SPHERICAL_POINTS_TO_IMPLICIT3_H_
-#define _BBR_SPHERICAL_POINTS_TO_IMPLICIT3_H_
+#ifndef _KIRI_SPHERICAL_POINTS_TO_IMPLICIT3_H_
+#define _KIRI_SPHERICAL_POINTS_TO_IMPLICIT3_H_
 
 #include <kiri_math/p2surf/points_to_implicit3.h>
 
@@ -30,4 +30,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // INCLUDE_BBR_SPHERICAL_POINTS_TO_IMPLICIT3_H_
+#endif // INCLUDE_KIRI_SPHERICAL_POINTS_TO_IMPLICIT3_H_

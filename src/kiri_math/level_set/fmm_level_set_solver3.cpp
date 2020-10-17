@@ -89,7 +89,7 @@ inline double solveQuadNearBoundary(const Array3<char> &markers,
         }
     }
 
-    BBR_MATH_ASSERT(hasX || hasY || hasZ);
+    KIRI_MATH_ASSERT(hasX || hasY || hasZ);
 
     const double absCenter = std::fabs(output(i, j, k));
 
@@ -194,7 +194,7 @@ inline double solveQuad(const Array3<char> &markers,
         }
     }
 
-    BBR_MATH_ASSERT(hasX || hasY || hasZ);
+    KIRI_MATH_ASSERT(hasX || hasY || hasZ);
 
     double solution = 0.0;
 
@@ -252,7 +252,7 @@ void FmmLevelSetSolver3::reinitialize(const ScalarGrid3 &inputSdf,
                                       double maxDistance,
                                       ScalarGrid3 *outputSdf)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!inputSdf.hasSameShape(*outputSdf));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!inputSdf.hasSameShape(*outputSdf));
 
     Size3 size = inputSdf.dataSize();
     Vector3D gridSpacing = inputSdf.gridSpacing();
@@ -434,7 +434,7 @@ void FmmLevelSetSolver3::extrapolate(const ScalarGrid3 &input,
                                      const ScalarField3 &sdf,
                                      double maxDistance, ScalarGrid3 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     Array3<double> sdfGrid(input.dataSize());
     auto pos = input.dataPosition();
@@ -451,7 +451,7 @@ void FmmLevelSetSolver3::extrapolate(const CollocatedVectorGrid3 &input,
                                      double maxDistance,
                                      CollocatedVectorGrid3 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     Array3<double> sdfGrid(input.dataSize());
     auto pos = input.dataPosition();
@@ -492,7 +492,7 @@ void FmmLevelSetSolver3::extrapolate(const FaceCenteredGrid3 &input,
                                      double maxDistance,
                                      FaceCenteredGrid3 *output)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
+    KIRI_MATH_THROW_INVALID_ARG_IF(!input.hasSameShape(*output));
 
     const Vector3D gridSpacing = input.gridSpacing();
 
@@ -751,7 +751,7 @@ void FmmLevelSetSolver3::extrapolate(const ConstArrayAccessor3<double> &input,
             }
         }
 
-        BBR_MATH_ASSERT(count > 0.0);
+        KIRI_MATH_ASSERT(count > 0.0);
 
         output(i, j, k) = sum / count;
         markers(i, j, k) = kKnown;

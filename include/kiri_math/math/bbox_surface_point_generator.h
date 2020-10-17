@@ -5,8 +5,8 @@
  * @Last Modified time: 2020-05-29 23:19:16
  */
 
-#ifndef _BBR_BBOX_SURFACE_POINT_GENERATOR_H_
-#define _BBR_BBOX_SURFACE_POINT_GENERATOR_H_
+#ifndef _KIRI_BBOX_SURFACE_POINT_GENERATOR_H_
+#define _KIRI_BBOX_SURFACE_POINT_GENERATOR_H_
 
 #include <kiri_math/math/point_generator3.h>
 
@@ -65,4 +65,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_BBOX_POINT_GENERATOR_H_
+#endif // _KIRI_BBOX_POINT_GENERATOR_H_

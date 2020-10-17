@@ -137,7 +137,7 @@ const double &FaceCenteredGrid3::w(size_t i, size_t j, size_t k) const
 Vector3D FaceCenteredGrid3::valueAtCellCenter(size_t i, size_t j,
                                               size_t k) const
 {
-    BBR_MATH_ASSERT(i < resolution().x && j < resolution().y && k < resolution().z);
+    KIRI_MATH_ASSERT(i < resolution().x && j < resolution().y && k < resolution().z);
 
     return 0.5 * Vector3D(_dataU(i, j, k) + _dataU(i + 1, j, k),
                           _dataV(i, j, k) + _dataV(i, j + 1, k),
@@ -147,7 +147,7 @@ Vector3D FaceCenteredGrid3::valueAtCellCenter(size_t i, size_t j,
 double FaceCenteredGrid3::divergenceAtCellCenter(size_t i, size_t j,
                                                  size_t k) const
 {
-    BBR_MATH_ASSERT(i < resolution().x && j < resolution().y && k < resolution().z);
+    KIRI_MATH_ASSERT(i < resolution().x && j < resolution().y && k < resolution().z);
 
     const Vector3D &gs = gridSpacing();
 
@@ -168,7 +168,7 @@ Vector3D FaceCenteredGrid3::curlAtCellCenter(size_t i, size_t j,
     const Size3 &res = resolution();
     const Vector3D &gs = gridSpacing();
 
-    BBR_MATH_ASSERT(i < res.x && j < res.y && k < res.z);
+    KIRI_MATH_ASSERT(i < res.x && j < res.y && k < res.z);
 
     Vector3D left = valueAtCellCenter((i > 0) ? i - 1 : i, j, k);
     Vector3D right = valueAtCellCenter((i + 1 < res.x) ? i + 1 : i, j, k);
@@ -529,10 +529,10 @@ void FaceCenteredGrid3::getData(std::vector<double> *data) const
 
 void FaceCenteredGrid3::setData(const std::vector<double> &data)
 {
-    BBR_MATH_ASSERT(uSize().x * uSize().y * uSize().z +
-                        vSize().x * vSize().y * vSize().z +
-                        wSize().x * wSize().y * wSize().z ==
-                    data.size());
+    KIRI_MATH_ASSERT(uSize().x * uSize().y * uSize().z +
+                         vSize().x * vSize().y * vSize().z +
+                         wSize().x * wSize().y * wSize().z ==
+                     data.size());
 
     size_t cnt = 0;
     _dataU.forEachIndex(

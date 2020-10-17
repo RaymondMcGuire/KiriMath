@@ -103,7 +103,7 @@ const double &FaceCenteredGrid2::v(size_t i, size_t j) const
 
 Vector2D FaceCenteredGrid2::valueAtCellCenter(size_t i, size_t j) const
 {
-    BBR_MATH_ASSERT(i < resolution().x && j < resolution().y);
+    KIRI_MATH_ASSERT(i < resolution().x && j < resolution().y);
 
     return 0.5 * Vector2D(_dataU(i, j) + _dataU(i + 1, j),
                           _dataV(i, j) + _dataV(i, j + 1));
@@ -111,7 +111,7 @@ Vector2D FaceCenteredGrid2::valueAtCellCenter(size_t i, size_t j) const
 
 double FaceCenteredGrid2::divergenceAtCellCenter(size_t i, size_t j) const
 {
-    BBR_MATH_ASSERT(i < resolution().x && j < resolution().y);
+    KIRI_MATH_ASSERT(i < resolution().x && j < resolution().y);
 
     const Vector2D &gs = gridSpacing();
 
@@ -127,7 +127,7 @@ double FaceCenteredGrid2::curlAtCellCenter(size_t i, size_t j) const
 {
     const Size2 &res = resolution();
 
-    BBR_MATH_ASSERT(i < res.x && j < res.y);
+    KIRI_MATH_ASSERT(i < res.x && j < res.y);
 
     const Vector2D gs = gridSpacing();
 
@@ -389,7 +389,7 @@ void FaceCenteredGrid2::getData(std::vector<double> *data) const
 
 void FaceCenteredGrid2::setData(const std::vector<double> &data)
 {
-    BBR_MATH_ASSERT(uSize().x * uSize().y + vSize().x * vSize().y == data.size());
+    KIRI_MATH_ASSERT(uSize().x * uSize().y + vSize().x * vSize().y == data.size());
 
     size_t cnt = 0;
     _dataU.forEachIndex(

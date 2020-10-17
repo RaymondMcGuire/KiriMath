@@ -1,5 +1,5 @@
-#ifndef _BBR_TRIANGLE_POINT_GENERATOR_H_
-#define _BBR_TRIANGLE_POINT_GENERATOR_H_
+#ifndef _KIRI_TRIANGLE_POINT_GENERATOR_H_
+#define _KIRI_TRIANGLE_POINT_GENERATOR_H_
 
 #include <kiri_math/math/point_generator2.h>
 
@@ -29,4 +29,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_TRIANGLE_POINT_GENERATOR_H_
+#endif // _KIRI_TRIANGLE_POINT_GENERATOR_H_

@@ -1,7 +1,15 @@
-#ifndef _BBR_IMPLICIT_SURFACE3_H_
-#define _BBR_IMPLICIT_SURFACE3_H_
+/*** 
+ * @Author: Xu.WANG
+ * @Date: 2020-10-17 23:27:26
+ * @LastEditTime: 2020-10-18 02:00:00
+ * @LastEditors: Xu.WANG
+ * @Description: 
+ * @FilePath: \KiriMath\include\kiri_math\physics\implicit_surface3.h
+ */
+#ifndef _KIRI_IMPLICIT_SURFACE3_H_
+#define _KIRI_IMPLICIT_SURFACE3_H_
 
-#include <kiri_math/physics //surface3.h>
+#include <kiri_math/physics/surface3.h>
 
 namespace kiri_math
 {
@@ -40,4 +48,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_IMPLICIT_SURFACE3_H_
+#endif // _KIRI_IMPLICIT_SURFACE3_H_

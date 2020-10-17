@@ -20,7 +20,7 @@ namespace kiri_math
     class CellCenteredScalarGrid3 final : public ScalarGrid3
     {
     public:
-        BBR_GRID3_TYPE_NAME(CellCenteredScalarGrid3)
+        KIRI_GRID3_TYPE_NAME(CellCenteredScalarGrid3)
 
         class Builder;
 

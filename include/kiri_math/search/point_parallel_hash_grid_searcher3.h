@@ -25,7 +25,7 @@ namespace kiri_math
     class PointParallelHashGridSearcher3 final : public PointNeighborSearcher3
     {
     public:
-        BBR_NEIGHBOR_SEARCHER3_TYPE_NAME(PointParallelHashGridSearcher3)
+        KIRI_NEIGHBOR_SEARCHER3_TYPE_NAME(PointParallelHashGridSearcher3)
 
         class Builder;
 

@@ -45,7 +45,7 @@ namespace kiri_math
     VectorBinaryOp<T, E1, E2, Op>::VectorBinaryOp(const E1 &u, const E2 &v)
         : _u(u), _v(v)
     {
-        BBR_MATH_ASSERT(u.size() == v.size());
+        KIRI_MATH_ASSERT(u.size() == v.size());
     }
 
     template <typename T, typename E1, typename E2, typename Op>

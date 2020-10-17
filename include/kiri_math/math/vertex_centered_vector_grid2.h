@@ -20,7 +20,7 @@ namespace kiri_math
     class VertexCenteredVectorGrid2 final : public CollocatedVectorGrid2
     {
     public:
-        BBR_GRID2_TYPE_NAME(VertexCenteredVectorGrid2)
+        KIRI_GRID2_TYPE_NAME(VertexCenteredVectorGrid2)
 
         class Builder;
 

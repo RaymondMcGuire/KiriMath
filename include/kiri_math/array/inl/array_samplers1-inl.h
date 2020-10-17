@@ -54,7 +54,7 @@ namespace kiri_math
     {
         R fx;
 
-        BBR_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
         R normalizedX = (x - _origin) / _gridSpacing;
 
         ssize_t iSize = static_cast<ssize_t>(_accessor.size());
@@ -121,7 +121,7 @@ namespace kiri_math
         ssize_t i;
         R fx;
 
-        BBR_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
         R normalizedX = (x - _origin) / _gridSpacing;
 
         ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
@@ -171,7 +171,7 @@ namespace kiri_math
         ssize_t iSize = static_cast<ssize_t>(_accessor.size());
         R fx;
 
-        BBR_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
+        KIRI_MATH_ASSERT(_gridSpacing > std::numeric_limits<R>::epsilon());
         R normalizedX = (x - _origin) / _gridSpacing;
 
         getBarycentric(normalizedX, 0, iSize - 1, &i, &fx);

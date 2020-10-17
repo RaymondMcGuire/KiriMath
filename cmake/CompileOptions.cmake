@@ -3,8 +3,8 @@
 # Platform and architecture setup
 #
 
-option(BBR_WARNINGS_AS_ERRORS "Treat all warnings as errors" ON)
-if(BBR_WARNINGS_AS_ERRORS)
+option(KIRI_WARNINGS_AS_ERRORS "Treat all warnings as errors" ON)
+if(KIRI_WARNINGS_AS_ERRORS)
     if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
         set(WARN_AS_ERROR_FLAGS "/WX")
     else()

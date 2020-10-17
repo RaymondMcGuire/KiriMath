@@ -146,13 +146,13 @@ namespace kiri_math
     {
         size_t height = lst.size();
         size_t width = (height > 0) ? lst.begin()->size() : 0;
-        BBR_MATH_ASSERT(width == 4);
-        BBR_MATH_ASSERT(height == 4);
+        KIRI_MATH_ASSERT(width == 4);
+        KIRI_MATH_ASSERT(height == 4);
 
         auto rowIter = lst.begin();
         for (size_t i = 0; i < height; ++i)
         {
-            BBR_MATH_ASSERT(width == rowIter->size());
+            KIRI_MATH_ASSERT(width == rowIter->size());
             auto colIter = rowIter->begin();
             for (size_t j = 0; j < width; ++j)
             {

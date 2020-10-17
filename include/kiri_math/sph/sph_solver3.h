@@ -4,8 +4,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2020-04-19 01:34:46 
  */
-#ifndef _BBR_SPH_SOLVER3_H_
-#define _BBR_SPH_SOLVER3_H_
+#ifndef _KIRI_SPH_SOLVER3_H_
+#define _KIRI_SPH_SOLVER3_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/particle/particle_system_solver3.h>
@@ -249,4 +249,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_SPH_SOLVER3_H_
+#endif // _KIRI_SPH_SOLVER3_H_

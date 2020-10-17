@@ -96,10 +96,10 @@ namespace kiri_math
     typedef std::shared_ptr<PointNeighborSearcherBuilder3>
         PointNeighborSearcherBuilder3Ptr;
 
-#define BBR_NEIGHBOR_SEARCHER3_TYPE_NAME(DerivedClassName) \
-    std::string typeName() const override                  \
-    {                                                      \
-        return #DerivedClassName;                          \
+#define KIRI_NEIGHBOR_SEARCHER3_TYPE_NAME(DerivedClassName) \
+    std::string typeName() const override                   \
+    {                                                       \
+        return #DerivedClassName;                           \
     }
 
 } // namespace kiri_math

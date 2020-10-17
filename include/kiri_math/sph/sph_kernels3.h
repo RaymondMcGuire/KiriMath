@@ -9,8 +9,8 @@
  * Proceedings of the 2003 ACM SIGGRAPH/Eurographics symposium on Computer
  * animation. Eurographics Association, 2003.
  */
-#ifndef _BBR_SPH_KERNELS3_H_
-#define _BBR_SPH_KERNELS3_H_
+#ifndef _KIRI_SPH_KERNELS3_H_
+#define _KIRI_SPH_KERNELS3_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/math/vector3.h>
@@ -228,4 +228,4 @@ namespace kiri_math
 
 #include "inl/sph_kernels3-inl.h"
 
-#endif // _BBR_SPH_KERNELS3_H_
+#endif // _KIRI_SPH_KERNELS3_H_

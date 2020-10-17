@@ -175,9 +175,9 @@ void ParticleSystemData2::addParticles(
     const ConstArrayAccessor1<Vector2D> &newVelocities,
     const ConstArrayAccessor1<Vector2D> &newForces)
 {
-    BBR_MATH_THROW_INVALID_ARG_IF(
+    KIRI_MATH_THROW_INVALID_ARG_IF(
         newVelocities.size() > 0 && newVelocities.size() != newPositions.size());
-    BBR_MATH_THROW_INVALID_ARG_IF(
+    KIRI_MATH_THROW_INVALID_ARG_IF(
         newForces.size() > 0 && newForces.size() != newPositions.size());
 
     size_t oldNumberOfParticles = numberOfParticles();
@@ -240,9 +240,9 @@ void ParticleSystemData2::buildNeighborSearcher(double maxSearchRadius)
 
     _neighborSearcher->build(positions());
 
-    BBR_INFO << "Building neighbor searcher took: "
-             << timer.durationInSeconds()
-             << " seconds";
+    KIRI_INFO << "Building neighbor searcher took: "
+              << timer.durationInSeconds()
+              << " seconds";
 }
 
 void ParticleSystemData2::buildNeighborLists(double maxSearchRadius)
@@ -268,9 +268,9 @@ void ParticleSystemData2::buildNeighborLists(double maxSearchRadius)
             });
     }
 
-    BBR_INFO << "Building neighbor list took: "
-             << timer.durationInSeconds()
-             << " seconds";
+    KIRI_INFO << "Building neighbor list took: "
+              << timer.durationInSeconds()
+              << " seconds";
 }
 
 void ParticleSystemData2::serialize(std::vector<uint8_t> *buffer) const

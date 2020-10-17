@@ -6,8 +6,8 @@
 //
 // https://github.com/christopherbatty/Fluid3D
 
-#ifndef _BBR_DETAIL_LEVEL_SET_UTILS_INL_H_
-#define _BBR_DETAIL_LEVEL_SET_UTILS_INL_H_
+#ifndef _KIRI_DETAIL_LEVEL_SET_UTILS_INL_H_
+#define _KIRI_DETAIL_LEVEL_SET_UTILS_INL_H_
 
 #include <kiri_math/constants.h>
 #include <cmath>
@@ -197,4 +197,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_DETAIL_LEVEL_SET_UTILS_INL_H_
+#endif // _KIRI_DETAIL_LEVEL_SET_UTILS_INL_H_

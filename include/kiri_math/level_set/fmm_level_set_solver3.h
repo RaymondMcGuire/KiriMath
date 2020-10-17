@@ -1,5 +1,5 @@
-#ifndef _BBR_FMM_LEVEL_SET_SOLVER3_H_
-#define _BBR_FMM_LEVEL_SET_SOLVER3_H_
+#ifndef _KIRI_FMM_LEVEL_SET_SOLVER3_H_
+#define _KIRI_FMM_LEVEL_SET_SOLVER3_H_
 
 #include <kiri_math/level_set/level_set_solver3.h>
 #include <memory>
@@ -94,4 +94,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_FMM_LEVEL_SET_SOLVER3_H_
+#endif // _KIRI_FMM_LEVEL_SET_SOLVER3_H_

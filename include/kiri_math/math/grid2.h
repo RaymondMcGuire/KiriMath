@@ -106,7 +106,7 @@ namespace kiri_math
 
     typedef std::shared_ptr<Grid2> Grid2Ptr;
 
-#define BBR_GRID2_TYPE_NAME(DerivedClassName) \
+#define KIRI_GRID2_TYPE_NAME(DerivedClassName) \
     std::string typeName() const override { return #DerivedClassName; }
 
 } // namespace kiri_math

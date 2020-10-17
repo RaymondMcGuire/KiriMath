@@ -15,21 +15,21 @@ void SphericalPointsToImplicit2::convert(
 {
     if (output == nullptr)
     {
-        BBR_WARN << "Null scalar grid output pointer provided.";
+        KIRI_WARN << "Null scalar grid output pointer provided.";
         return;
     }
 
     const auto res = output->resolution();
     if (res.x * res.y == 0)
     {
-        BBR_WARN << "Empty grid is provided.";
+        KIRI_WARN << "Empty grid is provided.";
         return;
     }
 
     const auto bbox = output->boundingBox();
     if (bbox.isEmpty())
     {
-        BBR_WARN << "Empty domain is provided.";
+        KIRI_WARN << "Empty domain is provided.";
         return;
     }
 

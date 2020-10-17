@@ -52,7 +52,7 @@ namespace kiri_math
     template <typename U>
     void Vector<T, 4>::set(const std::initializer_list<U> &lst)
     {
-        BBR_MATH_ASSERT(lst.size() >= 4);
+        KIRI_MATH_ASSERT(lst.size() >= 4);
 
         auto inputElem = lst.begin();
         x = static_cast<T>(*inputElem);
@@ -250,14 +250,14 @@ namespace kiri_math
     template <typename T>
     const T &Vector<T, 4>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < 4);
+        KIRI_MATH_ASSERT(i < 4);
         return (&x)[i];
     }
 
     template <typename T>
     T &Vector<T, 4>::at(size_t i)
     {
-        BBR_MATH_ASSERT(i < 4);
+        KIRI_MATH_ASSERT(i < 4);
         return (&x)[i];
     }
 
@@ -379,14 +379,14 @@ namespace kiri_math
     template <typename T>
     T &Vector<T, 4>::operator[](size_t i)
     {
-        BBR_MATH_ASSERT(i < 4);
+        KIRI_MATH_ASSERT(i < 4);
         return (&x)[i];
     }
 
     template <typename T>
     const T &Vector<T, 4>::operator[](size_t i) const
     {
-        BBR_MATH_ASSERT(i < 4);
+        KIRI_MATH_ASSERT(i < 4);
         return (&x)[i];
     }
 

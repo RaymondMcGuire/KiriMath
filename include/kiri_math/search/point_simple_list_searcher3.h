@@ -17,7 +17,7 @@ namespace kiri_math
     class PointSimpleListSearcher3 final : public PointNeighborSearcher3
     {
     public:
-        BBR_NEIGHBOR_SEARCHER3_TYPE_NAME(PointSimpleListSearcher3)
+        KIRI_NEIGHBOR_SEARCHER3_TYPE_NAME(PointSimpleListSearcher3)
 
         class Builder;
 

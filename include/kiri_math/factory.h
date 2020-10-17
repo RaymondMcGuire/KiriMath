@@ -1,5 +1,5 @@
-#ifndef SRC_BBR_FACTORY_H_
-#define SRC_BBR_FACTORY_H_
+#ifndef SRC_KIRI_FACTORY_H_
+#define SRC_KIRI_FACTORY_H_
 
 #include <kiri_math/math/scalar_grid2.h>
 #include <kiri_math/math/scalar_grid3.h>
@@ -32,4 +32,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // SRC_BBR_FACTORY_H_
+#endif // SRC_KIRI_FACTORY_H_

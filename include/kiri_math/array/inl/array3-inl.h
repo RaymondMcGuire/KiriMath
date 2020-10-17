@@ -78,11 +78,11 @@ namespace kiri_math
         for (size_t k = 0; k < depth; ++k)
         {
             rowIter = pageIter->begin();
-            BBR_MATH_ASSERT(height == pageIter->size());
+            KIRI_MATH_ASSERT(height == pageIter->size());
             for (size_t j = 0; j < height; ++j)
             {
                 auto colIter = rowIter->begin();
-                BBR_MATH_ASSERT(width == rowIter->size());
+                KIRI_MATH_ASSERT(width == rowIter->size());
                 for (size_t i = 0; i < width; ++i)
                 {
                     (*this)(i, j, k) = *colIter;
@@ -134,14 +134,14 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 3>::at(size_t i)
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y * _size.z);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y * _size.z);
         return _data[i];
     }
 
     template <typename T>
     const T &Array<T, 3>::at(size_t i) const
     {
-        BBR_MATH_ASSERT(i < _size.x * _size.y * _size.z);
+        KIRI_MATH_ASSERT(i < _size.x * _size.y * _size.z);
         return _data[i];
     }
 
@@ -160,14 +160,14 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 3>::at(size_t i, size_t j, size_t k)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     const T &Array<T, 3>::at(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
@@ -293,28 +293,28 @@ namespace kiri_math
     template <typename T>
     T &Array<T, 3>::operator()(size_t i, size_t j, size_t k)
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     const T &Array<T, 3>::operator()(size_t i, size_t j, size_t k) const
     {
-        BBR_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
+        KIRI_MATH_ASSERT(i < _size.x && j < _size.y && k < _size.z);
         return _data[i + _size.x * (j + _size.y * k)];
     }
 
     template <typename T>
     T &Array<T, 3>::operator()(const Point3UI &pt)
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return _data[pt.x + _size.x * (pt.y + _size.y * pt.z)];
     }
 
     template <typename T>
     const T &Array<T, 3>::operator()(const Point3UI &pt) const
     {
-        BBR_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
+        KIRI_MATH_ASSERT(pt.x < _size.x && pt.y < _size.y && pt.z < _size.z);
         return _data[pt.x + _size.x * (pt.y + _size.y * pt.z)];
     }
 

@@ -64,13 +64,13 @@ namespace kiri_math
         size_t rows = lst.size();
         size_t cols = (rows > 0) ? lst.begin()->size() : 0;
 
-        BBR_MATH_ASSERT(rows == M);
-        BBR_MATH_ASSERT(cols == N);
+        KIRI_MATH_ASSERT(rows == M);
+        KIRI_MATH_ASSERT(cols == N);
 
         auto rowIter = lst.begin();
         for (size_t i = 0; i < rows; ++i)
         {
-            BBR_MATH_ASSERT(cols == rowIter->size());
+            KIRI_MATH_ASSERT(cols == rowIter->size());
             auto colIter = rowIter->begin();
             for (size_t j = 0; j < cols; ++j)
             {
@@ -114,7 +114,7 @@ namespace kiri_math
     template <typename E>
     void Matrix<T, M, N>::setRow(size_t i, const VectorExpression<T, E> &row)
     {
-        BBR_MATH_ASSERT(cols() == row.size());
+        KIRI_MATH_ASSERT(cols() == row.size());
 
         const E &e = row();
         for (size_t j = 0; j < N; ++j)
@@ -127,7 +127,7 @@ namespace kiri_math
     template <typename E>
     void Matrix<T, M, N>::setColumn(size_t j, const VectorExpression<T, E> &col)
     {
-        BBR_MATH_ASSERT(rows() == col.size());
+        KIRI_MATH_ASSERT(rows() == col.size());
 
         const E &e = col();
         for (size_t i = 0; i < M; ++i)
@@ -400,7 +400,7 @@ namespace kiri_math
     template <typename T, size_t M, size_t N>
     void Matrix<T, M, N>::invert()
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
 
         // Computes inverse matrix using Gaussian elimination method.
         // https://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/
@@ -536,7 +536,7 @@ namespace kiri_math
     template <typename T, size_t M, size_t N>
     T Matrix<T, M, N>::trace() const
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
         T ret = 0;
         for (size_t i = 0; i < M; ++i)
         {
@@ -548,7 +548,7 @@ namespace kiri_math
     template <typename T, size_t M, size_t N>
     T Matrix<T, M, N>::determinant() const
     {
-        BBR_MATH_ASSERT(isSquare());
+        KIRI_MATH_ASSERT(isSquare());
 
         // Computes inverse matrix using Gaussian elimination method.
         // https://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/

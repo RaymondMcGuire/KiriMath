@@ -3,8 +3,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2019-12-14 02:26:45 
  */
-#ifndef _BBR_POINT_PARTICLE_EMITTER3_H_
-#define _BBR_POINT_PARTICLE_EMITTER3_H_
+#ifndef _KIRI_POINT_PARTICLE_EMITTER3_H_
+#define _KIRI_POINT_PARTICLE_EMITTER3_H_
 
 #include <kiri_math/particle/particle_emitter3.h>
 #include <limits>
@@ -150,4 +150,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_POINT_PARTICLE_EMITTER3_H_
+#endif // _KIRI_POINT_PARTICLE_EMITTER3_H_

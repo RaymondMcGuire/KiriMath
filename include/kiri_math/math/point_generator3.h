@@ -4,8 +4,8 @@
  * @Last Modified by: Xu.Wang
  * @Last Modified time: 2020-05-29 22:01:46
  */
-#ifndef _BBR_POINT_GENERATOR3_H_
-#define _BBR_POINT_GENERATOR3_H_
+#ifndef _KIRI_POINT_GENERATOR3_H_
+#define _KIRI_POINT_GENERATOR3_H_
 
 #include <kiri_math/array/array1.h>
 #include <kiri_math/physics/bounding_box3.h>
@@ -64,4 +64,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_POINT_GENERATOR3_H_
+#endif // _KIRI_POINT_GENERATOR3_H_

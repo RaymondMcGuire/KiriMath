@@ -116,16 +116,16 @@ namespace kiri_math
         Timer timer;
         updateCollider(0.0);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Update collider took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Update collider took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         timer.reset();
         updateEmitter(0.0);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Update emitter took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Update emitter took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
     }
 
@@ -136,23 +136,23 @@ namespace kiri_math
         Timer timer;
         accumulateForces(timeStepInSeconds);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Accumulating forces took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Accumulating forces took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         timer.reset();
         timeIntegration(timeStepInSeconds);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Time integration took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Time integration took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         timer.reset();
         resolveCollision();
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Resolving collision took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Resolving collision took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         endAdvanceTimeStep(timeStepInSeconds);
     }
@@ -175,16 +175,16 @@ namespace kiri_math
         Timer timer;
         updateCollider(timeStepInSeconds);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Update collider took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Update collider took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         timer.reset();
         updateEmitter(timeStepInSeconds);
 
-#ifdef BBR_LOGGING
-        BBR_INFO << "Update emitter took "
-                 << timer.durationInSeconds() << " seconds";
+#ifdef KIRI_LOGGING
+        KIRI_INFO << "Update emitter took "
+                  << timer.durationInSeconds() << " seconds";
 #endif
         // Allocate buffers
         size_t n = _particleSystemData->numberOfParticles();

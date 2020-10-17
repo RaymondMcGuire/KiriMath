@@ -140,10 +140,10 @@ void PointParallelHashGridSearcher3::build(
 
     if (_debug)
     {
-        BBR_INFO << "Average number of points per non-empty bucket: "
-                 << static_cast<float>(sumNumberOfPointsPerBucket) / static_cast<float>(numberOfNonEmptyBucket);
-        BBR_INFO << "Max number of points per bucket: "
-                 << maxNumberOfPointsPerBucket;
+        KIRI_INFO << "Average number of points per non-empty bucket: "
+                  << static_cast<float>(sumNumberOfPointsPerBucket) / static_cast<float>(numberOfNonEmptyBucket);
+        KIRI_INFO << "Max number of points per bucket: "
+                  << maxNumberOfPointsPerBucket;
     }
 }
 

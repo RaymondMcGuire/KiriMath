@@ -39,7 +39,7 @@ namespace kiri_math
     template <typename U>
     void Point<T, 2>::set(const std::initializer_list<U> &lst)
     {
-        BBR_MATH_ASSERT(lst.size() >= 2);
+        KIRI_MATH_ASSERT(lst.size() >= 2);
 
         auto inputElem = lst.begin();
         x = static_cast<T>(*inputElem);

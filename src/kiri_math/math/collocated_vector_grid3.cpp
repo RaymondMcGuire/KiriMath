@@ -36,7 +36,7 @@ double CollocatedVectorGrid3::divergenceAtDataPoint(
     const Size3 ds = _data.size();
     const Vector3D &gs = gridSpacing();
 
-    BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+    KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
     double left = _data((i > 0) ? i - 1 : i, j, k).x;
     double right = _data((i + 1 < ds.x) ? i + 1 : i, j, k).x;
@@ -54,7 +54,7 @@ Vector3D CollocatedVectorGrid3::curlAtDataPoint(
     const Size3 ds = _data.size();
     const Vector3D &gs = gridSpacing();
 
-    BBR_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
+    KIRI_MATH_ASSERT(i < ds.x && j < ds.y && k < ds.z);
 
     Vector3D left = _data((i > 0) ? i - 1 : i, j, k);
     Vector3D right = _data((i + 1 < ds.x) ? i + 1 : i, j, k);
@@ -214,7 +214,7 @@ void CollocatedVectorGrid3::getData(std::vector<double> *data) const
 
 void CollocatedVectorGrid3::setData(const std::vector<double> &data)
 {
-    BBR_MATH_ASSERT(3 * dataSize().x * dataSize().y * dataSize().z == data.size());
+    KIRI_MATH_ASSERT(3 * dataSize().x * dataSize().y * dataSize().z == data.size());
 
     size_t cnt = 0;
     _data.forEachIndex([&](size_t i, size_t j, size_t k) {

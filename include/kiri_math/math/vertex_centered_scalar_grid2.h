@@ -21,7 +21,7 @@ namespace kiri_math
     class VertexCenteredScalarGrid2 final : public ScalarGrid2
     {
     public:
-        BBR_GRID2_TYPE_NAME(VertexCenteredScalarGrid2)
+        KIRI_GRID2_TYPE_NAME(VertexCenteredScalarGrid2)
 
         class Builder;
 

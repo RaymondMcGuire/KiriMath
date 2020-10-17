@@ -3,8 +3,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2019-12-14 02:26:55 
  */
-#ifndef _BBR_VOLUME_PARTICLE_EMITTER2_H_
-#define _BBR_VOLUME_PARTICLE_EMITTER2_H_
+#ifndef _KIRI_VOLUME_PARTICLE_EMITTER2_H_
+#define _KIRI_VOLUME_PARTICLE_EMITTER2_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/physics/bounding_box2.h>
@@ -254,4 +254,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_VOLUME_PARTICLE_EMITTER2_H_
+#endif // _KIRI_VOLUME_PARTICLE_EMITTER2_H_

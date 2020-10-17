@@ -246,7 +246,7 @@ void ScalarGrid3::getData(std::vector<double> *data) const
 
 void ScalarGrid3::setData(const std::vector<double> &data)
 {
-    BBR_MATH_ASSERT(dataSize().x * dataSize().y * dataSize().z == data.size());
+    KIRI_MATH_ASSERT(dataSize().x * dataSize().y * dataSize().z == data.size());
 
     std::copy(data.begin(), data.end(), _data.begin());
 }

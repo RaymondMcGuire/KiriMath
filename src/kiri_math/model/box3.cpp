@@ -121,13 +121,13 @@ bool Box3::intersectsLocal(const Ray3D &ray) const
 SurfaceRayIntersection3 Box3::closestIntersectionLocal(const Ray3D &ray) const
 {
     SurfaceRayIntersection3 intersection;
-    BoundingBoxRayIntersection3D bbRayIntersection =
+    BoundingBoxRayIntersection3D KIRIayIntersection =
         bound.closestIntersection(ray);
-    intersection.isIntersecting = bbRayIntersection.isIntersecting;
+    intersection.isIntersecting = KIRIayIntersection.isIntersecting;
     if (intersection.isIntersecting)
     {
-        intersection.distance = bbRayIntersection.tNear;
-        intersection.point = ray.pointAt(bbRayIntersection.tNear);
+        intersection.distance = KIRIayIntersection.tNear;
+        intersection.point = ray.pointAt(KIRIayIntersection.tNear);
         intersection.normal = closestNormalLocal(intersection.point);
     }
 

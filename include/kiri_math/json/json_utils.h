@@ -6,7 +6,7 @@
 
 #include <json/json.hpp>
 
-#ifdef BBR_MATH_WINDOWS
+#ifdef KIRI_MATH_WINDOWS
 #include <direct.h>
 #else
 #include <sys/stat.h>
@@ -21,7 +21,7 @@ void saveDataAsJSON(const json &jsonData, const std::string &rootDir, const std:
     std::ofstream file(filename.c_str());
     if (file)
     {
-        BBR_INFO << filename;
+        KIRI_INFO << filename;
         file << jsonData.dump() << std::endl;
         file.close();
     }
@@ -39,7 +39,7 @@ json readJsonFromFile(const std::string &name = "data.json")
 void makeFolder(std::string outputDir)
 {
     bool b_mkdir = false;
-#ifdef BBR_MATH_WINDOWS
+#ifdef KIRI_MATH_WINDOWS
     b_mkdir = _mkdir(outputDir.c_str());
 #else
     b_mkdir = mkdir(outputDir.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
@@ -47,7 +47,7 @@ void makeFolder(std::string outputDir)
 
     if (b_mkdir)
     {
-        BBR_INFO << "Create Folder:" << outputDir;
+        KIRI_INFO << "Create Folder:" << outputDir;
     }
 }
 

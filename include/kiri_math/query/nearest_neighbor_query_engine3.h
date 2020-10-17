@@ -1,5 +1,5 @@
-#ifndef _BBR_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_
-#define _BBR_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_
+#ifndef _KIRI_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_
+#define _KIRI_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/math/vector3.h>
@@ -36,4 +36,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_
+#endif // _KIRI_NEAREST_NEIGHBOR_QUERY_ENGINE3_H_

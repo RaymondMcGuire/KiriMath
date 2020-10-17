@@ -20,7 +20,7 @@ namespace kiri_math
     class CellCenteredVectorGrid3 final : public CollocatedVectorGrid3
     {
     public:
-        BBR_GRID3_TYPE_NAME(CellCenteredVectorGrid3)
+        KIRI_GRID3_TYPE_NAME(CellCenteredVectorGrid3)
 
         class Builder;
 

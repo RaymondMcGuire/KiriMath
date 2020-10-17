@@ -36,7 +36,7 @@ double CollocatedVectorGrid2::divergenceAtDataPoint(
     const Size2 ds = _data.size();
     const Vector2D &gs = gridSpacing();
 
-    BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+    KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
     double left = _data((i > 0) ? i - 1 : i, j).x;
     double right = _data((i + 1 < ds.x) ? i + 1 : i, j).x;
@@ -52,7 +52,7 @@ double CollocatedVectorGrid2::curlAtDataPoint(
     const Size2 ds = _data.size();
     const Vector2D &gs = gridSpacing();
 
-    BBR_MATH_ASSERT(i < ds.x && j < ds.y);
+    KIRI_MATH_ASSERT(i < ds.x && j < ds.y);
 
     Vector2D left = _data((i > 0) ? i - 1 : i, j);
     Vector2D right = _data((i + 1 < ds.x) ? i + 1 : i, j);
@@ -197,7 +197,7 @@ void CollocatedVectorGrid2::getData(std::vector<double> *data) const
 
 void CollocatedVectorGrid2::setData(const std::vector<double> &data)
 {
-    BBR_MATH_ASSERT(2 * dataSize().x * dataSize().y == data.size());
+    KIRI_MATH_ASSERT(2 * dataSize().x * dataSize().y == data.size());
 
     size_t cnt = 0;
     _data.forEachIndex([&](size_t i, size_t j) {

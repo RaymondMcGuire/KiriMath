@@ -1,5 +1,5 @@
-#ifndef _BBR_SPH_SOLVER2_H_
-#define _BBR_SPH_SOLVER2_H_
+#ifndef _KIRI_SPH_SOLVER2_H_
+#define _KIRI_SPH_SOLVER2_H_
 
 #include <kiri_math/constants.h>
 #include <kiri_math/particle/particle_system_solver2.h>
@@ -243,4 +243,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_SPH_SOLVER2_H_
+#endif // _KIRI_SPH_SOLVER2_H_

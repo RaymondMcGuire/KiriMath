@@ -4,8 +4,8 @@
  * @Last Modified by:   Xu.Wang 
  * @Last Modified time: 2020-04-07 01:34:44 
  */
-#ifndef _BBR_RIGID_BODY_COLLIDER3_H_
-#define _BBR_RIGID_BODY_COLLIDER3_H_
+#ifndef _KIRI_RIGID_BODY_COLLIDER3_H_
+#define _KIRI_RIGID_BODY_COLLIDER3_H_
 
 #include <kiri_math/physics/collider3.h>
 #include <kiri_math/math/quaternion.h>
@@ -78,4 +78,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_RIGID_BODY_COLLIDER3_H_
+#endif // _KIRI_RIGID_BODY_COLLIDER3_H_

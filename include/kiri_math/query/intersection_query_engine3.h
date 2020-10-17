@@ -1,5 +1,5 @@
-#ifndef _BBR_INTERSECTION_QUERY_ENGINE3_H_
-#define _BBR_INTERSECTION_QUERY_ENGINE3_H_
+#ifndef _KIRI_INTERSECTION_QUERY_ENGINE3_H_
+#define _KIRI_INTERSECTION_QUERY_ENGINE3_H_
 
 #include <kiri_math/physics/bounding_box3.h>
 #include <kiri_math/constants.h>
@@ -71,4 +71,4 @@ namespace kiri_math
 
 } // namespace kiri_math
 
-#endif // _BBR_INTERSECTION_QUERY_ENGINE3_H_
+#endif // _KIRI_INTERSECTION_QUERY_ENGINE3_H_

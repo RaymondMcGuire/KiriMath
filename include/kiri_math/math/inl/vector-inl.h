@@ -65,7 +65,7 @@ namespace kiri_math
     template <typename U>
     void Vector<T, N>::set(const std::initializer_list<U> &lst)
     {
-        BBR_MATH_ASSERT(lst.size() >= N);
+        KIRI_MATH_ASSERT(lst.size() >= N);
 
         size_t i = 0;
         for (const auto &inputElem : lst)
@@ -79,7 +79,7 @@ namespace kiri_math
     template <typename E>
     void Vector<T, N>::set(const VectorExpression<T, E> &other)
     {
-        BBR_MATH_ASSERT(size() == other.size());
+        KIRI_MATH_ASSERT(size() == other.size());
 
         // Parallel evaluation of the expression
         const E &expression = other();
@@ -280,7 +280,7 @@ namespace kiri_math
     template <typename E>
     T Vector<T, N>::distanceSquaredTo(const E &other) const
     {
-        BBR_MATH_ASSERT(size() == other.size());
+        KIRI_MATH_ASSERT(size() == other.size());
 
         T ret = 0;
         for (size_t i = 0; i < N; ++i)
@@ -393,7 +393,7 @@ namespace kiri_math
     template <typename E>
     T Vector<T, N>::dot(const E &v) const
     {
-        BBR_MATH_ASSERT(size() == v.size());
+        KIRI_MATH_ASSERT(size() == v.size());
 
         T ret = 0;
         for (size_t i = 0; i < N; ++i)

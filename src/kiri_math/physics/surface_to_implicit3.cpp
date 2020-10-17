@@ -11,9 +11,9 @@ SurfaceToImplicit3::SurfaceToImplicit3(const Surface3Ptr &surface,
 {
     if (std::dynamic_pointer_cast<TriangleMesh3>(surface) != nullptr)
     {
-        BBR_WARN << "Using TriangleMesh3 with SurfaceToImplicit3 is accurate "
-                    "but slow. ImplicitTriangleMesh3 can provide faster but "
-                    "approximated results.";
+        KIRI_WARN << "Using TriangleMesh3 with SurfaceToImplicit3 is accurate "
+                     "but slow. ImplicitTriangleMesh3 can provide faster but "
+                     "approximated results.";
     }
 }
 

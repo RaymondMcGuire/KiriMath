@@ -31,7 +31,7 @@ namespace kiri_math
     template <typename U>
     Point<T, N>::Point(const std::initializer_list<U> &lst)
     {
-        BBR_MATH_ASSERT(lst.size() >= N);
+        KIRI_MATH_ASSERT(lst.size() >= N);
 
         size_t i = 0;
         for (const auto &inputElem : lst)

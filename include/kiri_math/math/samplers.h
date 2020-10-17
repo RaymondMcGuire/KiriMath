@@ -1,5 +1,5 @@
-#ifndef _BBR_SAMPLERS_H_
-#define _BBR_SAMPLERS_H_
+#ifndef _KIRI_SAMPLERS_H_
+#define _KIRI_SAMPLERS_H_
 
 #include <kiri_math/math/vector2.h>
 #include <kiri_math/math/vector3.h>
@@ -100,4 +100,4 @@ namespace kiri_math
 
 #include "inl/samplers-inl.h"
 
-#endif // _BBR_SAMPLERS_H_
+#endif // _KIRI_SAMPLERS_H_

@@ -58,8 +58,8 @@ namespace kiri_math
         float stepsX = std::round(diff.x + 1);
         float stepsY = std::round(diff.y + 1);
         float stepsZ = std::round(diff.z + 1);
-        BBR_INFO << "diff/spacing:" << diff.x << "," << diff.y << "," << diff.z;
-        BBR_INFO << "Generate Boundary Panel:" << stepsX << "," << stepsY << "," << stepsZ;
+        KIRI_INFO << "diff/spacing:" << diff.x << "," << diff.y << "," << diff.z;
+        KIRI_INFO << "Generate Boundary Panel:" << stepsX << "," << stepsY << "," << stepsZ;
         bool shouldQuit = false;
         for (int x = 0; x < (int)stepsX; x++)
         {
@@ -237,9 +237,9 @@ namespace kiri_math
         maxCorner.y = std::max(p1.y, p2.y);
         maxCorner.z = std::max(p1.z, p2.z);
 
-        // BBR_INFO << "max-min:" << (maxCorner.y - minCorner.y);
-        // BBR_INFO << "spacing:" << spacing;
-        // BBR_INFO << "max-min/spacing:" << (maxCorner.y - minCorner.y) / spacing;
+        // KIRI_INFO << "max-min:" << (maxCorner.y - minCorner.y);
+        // KIRI_INFO << "spacing:" << spacing;
+        // KIRI_INFO << "max-min/spacing:" << (maxCorner.y - minCorner.y) / spacing;
 
         p1 = minCorner;
         p2 = maxCorner;

@@ -19,7 +19,7 @@ namespace kiri_math
     class CellCenteredVectorGrid2 final : public CollocatedVectorGrid2
     {
     public:
-        BBR_GRID2_TYPE_NAME(CellCenteredVectorGrid2)
+        KIRI_GRID2_TYPE_NAME(CellCenteredVectorGrid2)
 
         class Builder;
 
