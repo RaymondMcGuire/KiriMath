@@ -1,9 +1,12 @@
-/*
- * @Author: Xu.Wang 
- * @Date: 2020-03-28 01:38:34 
- * @Last Modified by: Xu.Wang
- * @Last Modified time: 2020-04-26 01:55:11
+/*** 
+ * @Author: Xu.WANG
+ * @Date: 2020-10-18 02:35:55
+ * @LastEditTime: 2020-10-21 10:26:43
+ * @LastEditors: Xu.WANG
+ * @Description: 
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\kiri_math_opengl.h
  */
+
 #ifndef _KIRI_MATH_MIN_H_
 #define _KIRI_MATH_MIN_H_
 
@@ -14,6 +17,7 @@
 #include <kiri_math/math/vector2.h>
 #include <kiri_math/math/vector3.h>
 #include <kiri_math/math/vector4.h>
+#include <kiri_math/math/vector_n.h>
 #include <kiri_math/math/matrix2x2.h>
 #include <kiri_math/math/matrix3x3.h>
 #include <kiri_math/math/matrix4x4.h>
