@@ -1,12 +1,18 @@
+/*** 
+ * @Author: Xu.WANG
+ * @Date: 2020-10-18 02:04:46
+ * @LastEditTime: 2020-10-22 12:40:12
+ * @LastEditors: Xu.WANG
+ * @Description: 
+ * @FilePath: \Kiri\KiriMath\src\kiri_math\parallel.cpp
+ */
 #include <kiri_math/parallel.h>
 
 #include <memory>
 #include <thread>
+#include <iostream>
 
-#if defined(KIRI_TASKING_TBB)
-#include <tbb/task_arena.h>
-#include <tbb/task_scheduler_init.h>
-#elif defined(KIRI_TASKING_OPENMP)
+#if defined(KIRI_TASKING_OPENMP)
 #include <omp.h>
 #endif
 
@@ -27,6 +33,7 @@ namespace kiri_math
             tbbInit->initialize(numThreads);
         }
 #elif defined(KIRI_TASKING_OPENMP)
+        std::cout << "set thread num:" << numThreads << std::endl;
         omp_set_num_threads(numThreads);
 #endif
         sMaxNumberOfThreads = std::max(numThreads, 1u);

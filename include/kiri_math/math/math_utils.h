@@ -1,9 +1,12 @@
-/*
- * @Author: Doyub Kim  
- * @Date: 2020-03-20 14:16:51 
- * @Last Modified by:   Xu.Wang 
- * @Last Modified time: 2020-03-20 14:16:51 
+/*** 
+ * @Author: Xu.WANG
+ * @Date: 2020-10-18 01:04:50
+ * @LastEditTime: 2020-10-21 16:58:47
+ * @LastEditors: Xu.WANG
+ * @Description: 
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\math\math_utils.h
  */
+
 #ifndef _KIRI_MATH_MATH_UTILS_H_
 #define _KIRI_MATH_MATH_UTILS_H_
 

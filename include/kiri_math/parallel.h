@@ -1,6 +1,8 @@
 #ifndef _KIRI_MATH_PARALLEL_H_
 #define _KIRI_MATH_PARALLEL_H_
 
+#define KIRI_TASKING_OPENMP
+
 namespace kiri_math
 {
 

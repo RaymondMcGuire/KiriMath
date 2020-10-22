@@ -1,7 +1,7 @@
 /*** 
  * @Author: Xu.WANG
  * @Date: 2020-10-18 02:35:55
- * @LastEditTime: 2020-10-21 10:26:43
+ * @LastEditTime: 2020-10-21 18:31:40
  * @LastEditors: Xu.WANG
  * @Description: 
  * @FilePath: \Kiri\KiriMath\include\kiri_math\kiri_math_opengl.h
@@ -25,7 +25,10 @@
 #include <kiri_math/math/vector_field3F.h>
 #include <kiri_math/math/constant_vector_field3F.h>
 
+#include <kiri_math/array/array.h>
 #include <kiri_math/array/array1.h>
+#include <kiri_math/array/array2.h>
+#include <kiri_math/array/array3.h>
 
 #include <kiri_math/math/math_utils.h>
 
@@ -51,6 +54,6 @@
 #include <kiri_math/sph/sph_kernels3.h>
 
 // logging
-#include <kiri_math/logging.h>
+//#include <kiri_math/logging.h>
 
 #endif // _KIRI_MATH_MIN_H_

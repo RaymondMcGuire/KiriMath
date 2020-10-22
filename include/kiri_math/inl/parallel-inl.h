@@ -1,4 +1,11 @@
-
+/*** 
+ * @Author: Xu.WANG
+ * @Date: 2020-10-18 02:04:46
+ * @LastEditTime: 2020-10-22 13:06:44
+ * @LastEditors: Xu.WANG
+ * @Description: 
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\inl\parallel-inl.h
+ */
 
 #ifndef _KIRI_MATH_DETAIL_PARALLEL_INL_H_
 #define _KIRI_MATH_DETAIL_PARALLEL_INL_H_
@@ -11,14 +18,14 @@
 #include <future>
 #include <vector>
 
-#ifdef KIRI_TASKING_TBB
-#include <tbb/parallel_for.h>
-#include <tbb/parallel_reduce.h>
-#include <tbb/parallel_sort.h>
-#include <tbb/task.h>
-#elif defined(KIRI_TASKING_CPP11THREADS)
-#include <thread>
-#endif
+// #ifdef KIRI_TASKING_TBB
+// #include <tbb/parallel_for.h>
+// #include <tbb/parallel_reduce.h>
+// #include <tbb/parallel_sort.h>
+// #include <tbb/task.h>
+// #elif defined(KIRI_TASKING_CPP11THREADS)
+// #include <thread>
+// #endif
 
 namespace kiri_math
 {
@@ -270,17 +277,18 @@ namespace kiri_math
         }
         else
         {
+            std::cout << "not parallel" << std::endl;
             for (auto i = start; i < end; ++i)
             {
                 func(i);
             }
         }
-#else  // KIRI_TASKING_OPENMP
+#else
         for (auto i = start; i < end; ++i)
         {
             func(i);
         }
-#endif // KIRI_TASKING_OPENMP
+#endif
 
 #endif
     }
