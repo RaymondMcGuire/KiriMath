@@ -1,7 +1,7 @@
 /*** 
  * @Author: Xu.WANG
  * @Date: 2020-10-18 02:04:46
- * @LastEditTime: 2020-10-22 12:40:12
+ * @LastEditTime: 2020-11-02 18:16:16
  * @LastEditors: Xu.WANG
  * @Description: 
  * @FilePath: \Kiri\KiriMath\src\kiri_math\parallel.cpp
@@ -33,7 +33,6 @@ namespace kiri_math
             tbbInit->initialize(numThreads);
         }
 #elif defined(KIRI_TASKING_OPENMP)
-        std::cout << "set thread num:" << numThreads << std::endl;
         omp_set_num_threads(numThreads);
 #endif
         sMaxNumberOfThreads = std::max(numThreads, 1u);
