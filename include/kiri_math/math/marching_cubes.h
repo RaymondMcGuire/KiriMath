@@ -19,7 +19,7 @@ namespace kiri_math
     //! topological connectivity of the boundary meshes (default: disconnect all).
     //!
     //! \param[in]  grid            The grid.
-    //! \param[in]  gridSize        The grid size.
+    //! \param[in]  GridSize        The grid size.
     //! \param[in]  origin          The origin.
     //! \param[out] mesh            The output triangle mesh.
     //! \param[in]  isoValue        The iso-surface value.
@@ -27,7 +27,7 @@ namespace kiri_math
     //! \param[in]  bndConnectivity The boundary connectivity flag.
     //!
     void marchingCubes(const ConstArrayAccessor3<double> &grid,
-                       const Vector3D &gridSize, const Vector3D &origin,
+                       const Vector3D &GridSize, const Vector3D &origin,
                        TriangleMesh3 *mesh, double isoValue = 0,
                        int bndClose = kDirectionAll,
                        int bndConnectivity = kDirectionNone);

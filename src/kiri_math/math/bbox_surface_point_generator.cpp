@@ -351,15 +351,15 @@ namespace kiri_math
         bool shouldQuit = false;
         for (int k = 0; k * spacing <= boxDepth && !shouldQuit; ++k)
         {
-            position.z = k * spacing + boundingBox.lowerCorner.z;
+            position.z = k * spacing + boundingBox.LowestPoint.z;
 
             for (int j = 0; j * spacing <= boxHeight && !shouldQuit; ++j)
             {
-                position.y = j * spacing + boundingBox.lowerCorner.y;
+                position.y = j * spacing + boundingBox.LowestPoint.y;
 
                 for (int i = 0; i * spacing <= boxWidth; ++i)
                 {
-                    position.x = i * spacing + boundingBox.lowerCorner.x;
+                    position.x = i * spacing + boundingBox.LowestPoint.x;
                     if (!callback(position))
                     {
                         shouldQuit = true;

@@ -342,7 +342,7 @@ namespace kiri_math
         {
             nodeBound.merge(_points[itemIndices[i]]);
         }
-        Point d = nodeBound.upperCorner - nodeBound.lowerCorner;
+        Point d = nodeBound.HighestPoint - nodeBound.LowestPoint;
         size_t axis = static_cast<size_t>(d.dominantAxis());
 
         // pick mid point

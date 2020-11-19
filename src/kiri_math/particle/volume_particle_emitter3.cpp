@@ -82,8 +82,8 @@ void VolumeParticleEmitter3::emit(const ParticleSystemData3Ptr &particles,
     if (_implicitSurface->isBounded())
     {
         BoundingBox3D surfaceBBox = _implicitSurface->boundingBox();
-        region.lowerCorner = max(region.lowerCorner, surfaceBBox.lowerCorner);
-        region.upperCorner = min(region.upperCorner, surfaceBBox.upperCorner);
+        region.LowestPoint = max(region.LowestPoint, surfaceBBox.LowestPoint);
+        region.HighestPoint = min(region.HighestPoint, surfaceBBox.HighestPoint);
     }
 
     // Reserving more space for jittering

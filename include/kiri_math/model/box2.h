@@ -33,10 +33,10 @@ namespace kiri_math
             const Transform2 &transform = Transform2(),
             bool isNormalFlipped = false);
 
-        //! Constructs a box with given \p lowerCorner and \p upperCorner.
+        //! Constructs a box with given \p LowestPoint and \p HighestPoint.
         Box2(
-            const Vector2D &lowerCorner,
-            const Vector2D &upperCorner,
+            const Vector2D &LowestPoint,
+            const Vector2D &HighestPoint,
             const Transform2 &transform = Transform2(),
             bool isNormalFlipped = false);
 
@@ -77,10 +77,10 @@ namespace kiri_math
     {
     public:
         //! Returns builder with lower corner set.
-        Builder &withLowerCorner(const Vector2D &pt);
+        Builder &withLowestPoint(const Vector2D &pt);
 
         //! Returns builder with upper corner set.
-        Builder &withUpperCorner(const Vector2D &pt);
+        Builder &withHighestPoint(const Vector2D &pt);
 
         //! Returns builder with bounding box.
         Builder &withBoundingBox(const BoundingBox2D &bbox);
@@ -92,8 +92,8 @@ namespace kiri_math
         Box2Ptr makeShared() const;
 
     private:
-        Vector2D _lowerCorner{0, 0};
-        Vector2D _upperCorner{1, 1};
+        Vector2D mLowestPoint{0, 0};
+        Vector2D mHighestPoint{1, 1};
     };
 
 } // namespace kiri_math

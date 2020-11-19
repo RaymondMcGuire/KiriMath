@@ -18,45 +18,45 @@ namespace kiri_math
     BoundingBox<T, 2>::BoundingBox(const Vector2<T> &point1,
                                    const Vector2<T> &point2)
     {
-        lowerCorner.x = std::min(point1.x, point2.x);
-        lowerCorner.y = std::min(point1.y, point2.y);
-        upperCorner.x = std::max(point1.x, point2.x);
-        upperCorner.y = std::max(point1.y, point2.y);
+        LowestPoint.x = std::min(point1.x, point2.x);
+        LowestPoint.y = std::min(point1.y, point2.y);
+        HighestPoint.x = std::max(point1.x, point2.x);
+        HighestPoint.y = std::max(point1.y, point2.y);
     }
 
     template <typename T>
     BoundingBox<T, 2>::BoundingBox(const BoundingBox &other)
-        : lowerCorner(other.lowerCorner), upperCorner(other.upperCorner) {}
+        : LowestPoint(other.LowestPoint), HighestPoint(other.HighestPoint) {}
 
     template <typename T>
     T BoundingBox<T, 2>::width() const
     {
-        return upperCorner.x - lowerCorner.x;
+        return HighestPoint.x - LowestPoint.x;
     }
 
     template <typename T>
     T BoundingBox<T, 2>::height() const
     {
-        return upperCorner.y - lowerCorner.y;
+        return HighestPoint.y - LowestPoint.y;
     }
 
     template <typename T>
     T BoundingBox<T, 2>::length(size_t axis)
     {
-        return upperCorner[axis] - lowerCorner[axis];
+        return HighestPoint[axis] - LowestPoint[axis];
     }
 
     template <typename T>
     bool BoundingBox<T, 2>::overlaps(const BoundingBox &other) const
     {
-        if (upperCorner.x < other.lowerCorner.x ||
-            lowerCorner.x > other.upperCorner.x)
+        if (HighestPoint.x < other.LowestPoint.x ||
+            LowestPoint.x > other.HighestPoint.x)
         {
             return false;
         }
 
-        if (upperCorner.y < other.lowerCorner.y ||
-            lowerCorner.y > other.upperCorner.y)
+        if (HighestPoint.y < other.LowestPoint.y ||
+            LowestPoint.y > other.HighestPoint.y)
         {
             return false;
         }
@@ -67,12 +67,12 @@ namespace kiri_math
     template <typename T>
     bool BoundingBox<T, 2>::contains(const Vector2<T> &point) const
     {
-        if (upperCorner.x < point.x || lowerCorner.x > point.x)
+        if (HighestPoint.x < point.x || LowestPoint.x > point.x)
         {
             return false;
         }
 
-        if (upperCorner.y < point.y || lowerCorner.y > point.y)
+        if (HighestPoint.y < point.y || LowestPoint.y > point.y)
         {
             return false;
         }
@@ -90,8 +90,8 @@ namespace kiri_math
 
         for (int i = 0; i < 2; ++i)
         {
-            T tNear = (lowerCorner[i] - ray.origin[i]) * rayInvDir[i];
-            T tFar = (upperCorner[i] - ray.origin[i]) * rayInvDir[i];
+            T tNear = (LowestPoint[i] - ray.origin[i]) * rayInvDir[i];
+            T tFar = (HighestPoint[i] - ray.origin[i]) * rayInvDir[i];
 
             if (tNear > tFar)
                 std::swap(tNear, tFar);
@@ -118,8 +118,8 @@ namespace kiri_math
 
         for (int i = 0; i < 2; ++i)
         {
-            T tNear = (lowerCorner[i] - ray.origin[i]) * rayInvDir[i];
-            T tFar = (upperCorner[i] - ray.origin[i]) * rayInvDir[i];
+            T tNear = (LowestPoint[i] - ray.origin[i]) * rayInvDir[i];
+            T tFar = (HighestPoint[i] - ray.origin[i]) * rayInvDir[i];
 
             if (tNear > tFar)
             {
@@ -155,53 +155,53 @@ namespace kiri_math
     template <typename T>
     Vector2<T> BoundingBox<T, 2>::midPoint() const
     {
-        return (upperCorner + lowerCorner) / static_cast<T>(2);
+        return (HighestPoint + LowestPoint) / static_cast<T>(2);
     }
 
     template <typename T>
     T BoundingBox<T, 2>::diagonalLength() const
     {
-        return (upperCorner - lowerCorner).length();
+        return (HighestPoint - LowestPoint).length();
     }
 
     template <typename T>
     T BoundingBox<T, 2>::diagonalLengthSquared() const
     {
-        return (upperCorner - lowerCorner).lengthSquared();
+        return (HighestPoint - LowestPoint).lengthSquared();
     }
 
     template <typename T>
     void BoundingBox<T, 2>::reset()
     {
-        lowerCorner.x = std::numeric_limits<T>::max();
-        lowerCorner.y = std::numeric_limits<T>::max();
-        upperCorner.x = -std::numeric_limits<T>::max();
-        upperCorner.y = -std::numeric_limits<T>::max();
+        LowestPoint.x = std::numeric_limits<T>::max();
+        LowestPoint.y = std::numeric_limits<T>::max();
+        HighestPoint.x = -std::numeric_limits<T>::max();
+        HighestPoint.y = -std::numeric_limits<T>::max();
     }
 
     template <typename T>
     void BoundingBox<T, 2>::merge(const Vector2<T> &point)
     {
-        lowerCorner.x = std::min(lowerCorner.x, point.x);
-        lowerCorner.y = std::min(lowerCorner.y, point.y);
-        upperCorner.x = std::max(upperCorner.x, point.x);
-        upperCorner.y = std::max(upperCorner.y, point.y);
+        LowestPoint.x = std::min(LowestPoint.x, point.x);
+        LowestPoint.y = std::min(LowestPoint.y, point.y);
+        HighestPoint.x = std::max(HighestPoint.x, point.x);
+        HighestPoint.y = std::max(HighestPoint.y, point.y);
     }
 
     template <typename T>
     void BoundingBox<T, 2>::merge(const BoundingBox &other)
     {
-        lowerCorner.x = std::min(lowerCorner.x, other.lowerCorner.x);
-        lowerCorner.y = std::min(lowerCorner.y, other.lowerCorner.y);
-        upperCorner.x = std::max(upperCorner.x, other.upperCorner.x);
-        upperCorner.y = std::max(upperCorner.y, other.upperCorner.y);
+        LowestPoint.x = std::min(LowestPoint.x, other.LowestPoint.x);
+        LowestPoint.y = std::min(LowestPoint.y, other.LowestPoint.y);
+        HighestPoint.x = std::max(HighestPoint.x, other.HighestPoint.x);
+        HighestPoint.y = std::max(HighestPoint.y, other.HighestPoint.y);
     }
 
     template <typename T>
     void BoundingBox<T, 2>::expand(T delta)
     {
-        lowerCorner -= delta;
-        upperCorner += delta;
+        LowestPoint -= delta;
+        HighestPoint += delta;
     }
 
     template <typename T>
@@ -217,13 +217,13 @@ namespace kiri_math
     template <typename T>
     Vector2<T> BoundingBox<T, 2>::clamp(const Vector2<T> &pt) const
     {
-        return ::kiri_math::clamp(pt, lowerCorner, upperCorner);
+        return ::kiri_math::clamp(pt, LowestPoint, HighestPoint);
     }
 
     template <typename T>
     bool BoundingBox<T, 2>::isEmpty() const
     {
-        return (lowerCorner.x >= upperCorner.x || lowerCorner.y >= upperCorner.y);
+        return (LowestPoint.x >= HighestPoint.x || LowestPoint.y >= HighestPoint.y);
     }
 
 } // namespace kiri_math

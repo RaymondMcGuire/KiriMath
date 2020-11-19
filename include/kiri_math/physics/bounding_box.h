@@ -22,10 +22,10 @@ namespace kiri_math
         typedef Vector<T, N> VectorType;
 
         //! Lower corner of the bounding box.
-        VectorType lowerCorner;
+        VectorType LowestPoint;
 
         //! Upper corner of the bounding box.
-        VectorType upperCorner;
+        VectorType HighestPoint;
 
         //! Default constructor.
         BoundingBox();

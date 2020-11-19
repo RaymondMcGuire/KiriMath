@@ -670,7 +670,7 @@ namespace kiri_math
             nodeBound.merge(_itemBounds[itemIndices[i]]);
         }
 
-        Vector3D d = nodeBound.upperCorner - nodeBound.lowerCorner;
+        Vector3D d = nodeBound.HighestPoint - nodeBound.LowestPoint;
 
         // choose which axis to split along
         uint8_t axis;
@@ -684,7 +684,7 @@ namespace kiri_math
         }
 
         double pivot =
-            0.5 * (nodeBound.upperCorner[axis] + nodeBound.lowerCorner[axis]);
+            0.5 * (nodeBound.HighestPoint[axis] + nodeBound.LowestPoint[axis]);
 
         // classify primitives with respect to split
         size_t midPoint = qsplit(itemIndices, nItems, pivot, axis);
@@ -707,7 +707,7 @@ namespace kiri_math
         for (size_t i = 0; i < numItems; ++i)
         {
             BoundingBox3D b = _itemBounds[itemIndices[i]];
-            centroid = 0.5f * (b.lowerCorner[axis] + b.upperCorner[axis]);
+            centroid = 0.5f * (b.LowestPoint[axis] + b.HighestPoint[axis]);
             if (centroid < pivot)
             {
                 std::swap(itemIndices[i], itemIndices[ret]);
