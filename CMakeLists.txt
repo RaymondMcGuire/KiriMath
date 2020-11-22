@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.17.0)
-
 set(PROJECT_NAME kiri_math)
 
 set(EXTLIB_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlib)
@@ -7,8 +5,10 @@ set(FLATBUFFERS_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlib/flatbuffers)
 set(FLATBUFFERS_GENERATED ${CMAKE_CURRENT_SOURCE_DIR}/include/flatbuffers_generated)
 
 
-file(GLOB_RECURSE SOURCES  "./src/*.cpp" "./src/*.c")
-file(GLOB_RECURSE HEADERS  "./include/*.hpp" "./include/*.h")
+file(GLOB_RECURSE SOURCES  "src/*.cpp" "src/*.c")
+file(GLOB_RECURSE HEADERS  "include/*.hpp" "include/*.h")
+set(PROJECT_FILES ${SOURCES} ${HEADERS})
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ../bin/Release)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ../bin/Debug)
@@ -28,7 +28,9 @@ include(cmake/CompileOptions.cmake)
 # Whether to use rpaths on macOS and iOS.
 set(CMAKE_MACOSX_RPATH ON)
 
-add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+add_library(${PROJECT_NAME} ${PROJECT_FILES})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${PROJECT_FILES})
+
 
 set_target_properties(
     ${PROJECT_NAME} PROPERTIES
