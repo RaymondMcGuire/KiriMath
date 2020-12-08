@@ -20,14 +20,14 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            lowerCorner[i] = std::min(point1[i], point2[i]);
-            upperCorner[i] = std::max(point1[i], point2[i]);
+            LowestPoint[i] = std::min(point1[i], point2[i]);
+            HighestPoint[i] = std::max(point1[i], point2[i]);
         }
     }
 
     template <typename T, size_t N>
-    BoundingBox<T, N>::BoundingBox(const BoundingBox &other) : lowerCorner(other.lowerCorner),
-                                                               upperCorner(other.upperCorner)
+    BoundingBox<T, N>::BoundingBox(const BoundingBox &other) : LowestPoint(other.LowestPoint),
+                                                               HighestPoint(other.HighestPoint)
     {
     }
 
@@ -36,7 +36,7 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            if (upperCorner[i] < other.lowerCorner[i] || lowerCorner[i] > other.upperCorner[i])
+            if (HighestPoint[i] < other.LowestPoint[i] || LowestPoint[i] > other.HighestPoint[i])
             {
                 return false;
             }
@@ -50,7 +50,7 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            if (upperCorner[i] < point[i] || lowerCorner[i] > point[i])
+            if (HighestPoint[i] < point[i] || LowestPoint[i] > point[i])
             {
                 return false;
             }
@@ -65,7 +65,7 @@ namespace kiri_math
         Vector<T, N> result;
         for (size_t i = 0; i < N; ++i)
         {
-            result[i] = (upperCorner[i] + lowerCorner[i]) / 2;
+            result[i] = (HighestPoint[i] + LowestPoint[i]) / 2;
         }
         return result;
     }
@@ -76,7 +76,7 @@ namespace kiri_math
         T result = 0;
         for (size_t i = 0; i < N; ++i)
         {
-            result += square(upperCorner[i] - lowerCorner[i]);
+            result += square(HighestPoint[i] - LowestPoint[i]);
         }
         return std::sqrt(result);
     }
@@ -87,7 +87,7 @@ namespace kiri_math
         T result = 0;
         for (size_t i = 0; i < N; ++i)
         {
-            result += square(upperCorner[i] - lowerCorner[i]);
+            result += square(HighestPoint[i] - LowestPoint[i]);
         }
         return result;
     }
@@ -97,8 +97,8 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            lowerCorner[i] = std::numeric_limits<T>::max();
-            upperCorner[i] = -std::numeric_limits<T>::max();
+            LowestPoint[i] = std::numeric_limits<T>::max();
+            HighestPoint[i] = -std::numeric_limits<T>::max();
         }
     }
 
@@ -107,8 +107,8 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            lowerCorner[i] = std::min(lowerCorner[i], point[i]);
-            upperCorner[i] = std::max(upperCorner[i], point[i]);
+            LowestPoint[i] = std::min(LowestPoint[i], point[i]);
+            HighestPoint[i] = std::max(HighestPoint[i], point[i]);
         }
     }
 
@@ -117,8 +117,8 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            lowerCorner[i] = std::min(lowerCorner[i], other.lowerCorner[i]);
-            upperCorner[i] = std::max(upperCorner[i], other.upperCorner[i]);
+            LowestPoint[i] = std::min(LowestPoint[i], other.LowestPoint[i]);
+            HighestPoint[i] = std::max(HighestPoint[i], other.HighestPoint[i]);
         }
     }
 
@@ -127,8 +127,8 @@ namespace kiri_math
     {
         for (size_t i = 0; i < N; ++i)
         {
-            lowerCorner[i] -= delta;
-            upperCorner[i] += delta;
+            LowestPoint[i] -= delta;
+            HighestPoint[i] += delta;
         }
     }
 

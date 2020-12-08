@@ -383,17 +383,17 @@ namespace kiri_math
     }
 
     void marchingCubes(const ConstArrayAccessor3<double> &grid,
-                       const Vector3D &gridSize, const Vector3D &origin,
+                       const Vector3D &GridSize, const Vector3D &origin,
                        TriangleMesh3 *mesh, double isoValue, int bndClose,
                        int bndConnectivity)
     {
         MarchingCubeVertexMap vertexMap;
 
         const Size3 dim = grid.size();
-        const Vector3D invGridSize = 1.0 / gridSize;
+        const Vector3D invGridSize = 1.0 / GridSize;
 
-        auto pos = [origin, gridSize](ssize_t i, ssize_t j, ssize_t k) {
-            return origin + gridSize * Vector3D({i, j, k});
+        auto pos = [origin, GridSize](ssize_t i, ssize_t j, ssize_t k) {
+            return origin + GridSize * Vector3D({i, j, k});
         };
 
         ssize_t dimx = static_cast<ssize_t>(dim.x);
@@ -434,8 +434,8 @@ namespace kiri_math
                         edgeIds[e] = globalEdgeId(i, j, k, dim, e);
                     }
 
-                    bound.lowerCorner = pos(i, j, k);
-                    bound.upperCorner = pos(i + 1, j + 1, k + 1);
+                    bound.LowestPoint = pos(i, j, k);
+                    bound.HighestPoint = pos(i + 1, j + 1, k + 1);
 
                     singleCube(data, edgeIds, normals, bound, &vertexMap, mesh,
                                isoValue);

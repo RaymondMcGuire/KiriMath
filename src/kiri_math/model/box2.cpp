@@ -14,9 +14,9 @@ using namespace kiri_math;
 Box2::Box2(const Transform2 &transform, bool isNormalFlipped)
     : Surface2(transform, isNormalFlipped) {}
 
-Box2::Box2(const Vector2D &lowerCorner, const Vector2D &upperCorner,
+Box2::Box2(const Vector2D &LowestPoint, const Vector2D &HighestPoint,
            const Transform2 &transform, bool isNormalFlipped)
-    : Box2(BoundingBox2D(lowerCorner, upperCorner), transform,
+    : Box2(BoundingBox2D(LowestPoint, HighestPoint), transform,
            isNormalFlipped) {}
 
 Box2::Box2(const BoundingBox2D &boundingBox, const Transform2 &transform,
@@ -29,10 +29,10 @@ Vector2D Box2::closestPointLocal(const Vector2D &otherPoint) const
 {
     if (bound.contains(otherPoint))
     {
-        Plane2 planes[4] = {Plane2(Vector2D(1, 0), bound.upperCorner),
-                            Plane2(Vector2D(0, 1), bound.upperCorner),
-                            Plane2(Vector2D(-1, 0), bound.lowerCorner),
-                            Plane2(Vector2D(0, -1), bound.lowerCorner)};
+        Plane2 planes[4] = {Plane2(Vector2D(1, 0), bound.HighestPoint),
+                            Plane2(Vector2D(0, 1), bound.HighestPoint),
+                            Plane2(Vector2D(-1, 0), bound.LowestPoint),
+                            Plane2(Vector2D(0, -1), bound.LowestPoint)};
 
         Vector2D result = planes[0].closestPoint(otherPoint);
         double distanceSquared = result.distanceSquaredTo(otherPoint);
@@ -54,16 +54,16 @@ Vector2D Box2::closestPointLocal(const Vector2D &otherPoint) const
     }
     else
     {
-        return clamp(otherPoint, bound.lowerCorner, bound.upperCorner);
+        return clamp(otherPoint, bound.LowestPoint, bound.HighestPoint);
     }
 }
 
 Vector2D Box2::closestNormalLocal(const Vector2D &otherPoint) const
 {
-    Plane2 planes[4] = {Plane2(Vector2D(1, 0), bound.upperCorner),
-                        Plane2(Vector2D(0, 1), bound.upperCorner),
-                        Plane2(Vector2D(-1, 0), bound.lowerCorner),
-                        Plane2(Vector2D(0, -1), bound.lowerCorner)};
+    Plane2 planes[4] = {Plane2(Vector2D(1, 0), bound.HighestPoint),
+                        Plane2(Vector2D(0, 1), bound.HighestPoint),
+                        Plane2(Vector2D(-1, 0), bound.LowestPoint),
+                        Plane2(Vector2D(0, -1), bound.LowestPoint)};
 
     if (bound.contains(otherPoint))
     {
@@ -89,7 +89,7 @@ Vector2D Box2::closestNormalLocal(const Vector2D &otherPoint) const
     else
     {
         Vector2D closestPoint =
-            clamp(otherPoint, bound.lowerCorner, bound.upperCorner);
+            clamp(otherPoint, bound.LowestPoint, bound.HighestPoint);
         Vector2D closestPointToInputPoint = otherPoint - closestPoint;
         Vector2D closestNormal = planes[0].normal;
         double maxCosineAngle = closestNormal.dot(closestPointToInputPoint);
@@ -133,33 +133,33 @@ BoundingBox2D Box2::boundingBoxLocal() const { return bound; }
 
 Box2::Builder Box2::builder() { return Builder(); }
 
-Box2::Builder &Box2::Builder::withLowerCorner(const Vector2D &pt)
+Box2::Builder &Box2::Builder::withLowestPoint(const Vector2D &pt)
 {
-    _lowerCorner = pt;
+    mLowestPoint = pt;
     return *this;
 }
 
-Box2::Builder &Box2::Builder::withUpperCorner(const Vector2D &pt)
+Box2::Builder &Box2::Builder::withHighestPoint(const Vector2D &pt)
 {
-    _upperCorner = pt;
+    mHighestPoint = pt;
     return *this;
 }
 
 Box2::Builder &Box2::Builder::withBoundingBox(const BoundingBox2D &bbox)
 {
-    _lowerCorner = bbox.lowerCorner;
-    _upperCorner = bbox.upperCorner;
+    mLowestPoint = bbox.LowestPoint;
+    mHighestPoint = bbox.HighestPoint;
     return *this;
 }
 
 Box2 Box2::Builder::build() const
 {
-    return Box2(_lowerCorner, _upperCorner, _transform, _isNormalFlipped);
+    return Box2(mLowestPoint, mHighestPoint, _transform, _isNormalFlipped);
 }
 
 Box2Ptr Box2::Builder::makeShared() const
 {
     return std::shared_ptr<Box2>(
-        new Box2(_lowerCorner, _upperCorner, _transform, _isNormalFlipped),
+        new Box2(mLowestPoint, mHighestPoint, _transform, _isNormalFlipped),
         [](Box2 *obj) { delete obj; });
 }

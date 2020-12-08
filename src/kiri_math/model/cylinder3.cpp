@@ -83,8 +83,8 @@ bool Cylinder3::intersectsLocal(const Ray3D &ray) const
     double C = o.lengthSquared() - square(radius);
 
     BoundingBox3D bbox = boundingBox();
-    Plane3 upperPlane(Vector3D(0, 1, 0), bbox.upperCorner);
-    Plane3 lowerPlane(Vector3D(0, -1, 0), bbox.lowerCorner);
+    Plane3 upperPlane(Vector3D(0, 1, 0), bbox.HighestPoint);
+    Plane3 lowerPlane(Vector3D(0, -1, 0), bbox.LowestPoint);
 
     SurfaceRayIntersection3 upperIntersection =
         upperPlane.closestIntersection(ray);
@@ -166,8 +166,8 @@ SurfaceRayIntersection3 Cylinder3::closestIntersectionLocal(
     double C = o.lengthSquared() - square(radius);
 
     BoundingBox3D bbox = boundingBox();
-    Plane3 upperPlane(Vector3D(0, 1, 0), bbox.upperCorner);
-    Plane3 lowerPlane(Vector3D(0, -1, 0), bbox.lowerCorner);
+    Plane3 upperPlane(Vector3D(0, 1, 0), bbox.HighestPoint);
+    Plane3 lowerPlane(Vector3D(0, -1, 0), bbox.LowestPoint);
 
     SurfaceRayIntersection3 upperIntersection =
         upperPlane.closestIntersection(ray);

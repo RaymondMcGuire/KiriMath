@@ -75,8 +75,8 @@ namespace kiri_math
         for (int i = 0; i < 4; ++i)
         {
             auto cornerInLocal = toLocal(bboxInWorld.corner(i));
-            bboxInLocal.lowerCorner = min(bboxInLocal.lowerCorner, cornerInLocal);
-            bboxInLocal.upperCorner = max(bboxInLocal.upperCorner, cornerInLocal);
+            bboxInLocal.LowestPoint = min(bboxInLocal.LowestPoint, cornerInLocal);
+            bboxInLocal.HighestPoint = max(bboxInLocal.HighestPoint, cornerInLocal);
         }
         return bboxInLocal;
     }
@@ -111,8 +111,8 @@ namespace kiri_math
         for (int i = 0; i < 4; ++i)
         {
             auto cornerInWorld = toWorld(bboxInLocal.corner(i));
-            bboxInWorld.lowerCorner = min(bboxInWorld.lowerCorner, cornerInWorld);
-            bboxInWorld.upperCorner = max(bboxInWorld.upperCorner, cornerInWorld);
+            bboxInWorld.LowestPoint = min(bboxInWorld.LowestPoint, cornerInWorld);
+            bboxInWorld.HighestPoint = max(bboxInWorld.HighestPoint, cornerInWorld);
         }
         return bboxInWorld;
     }

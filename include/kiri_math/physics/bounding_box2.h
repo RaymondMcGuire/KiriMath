@@ -38,10 +38,10 @@ namespace kiri_math
     {
     public:
         //! Lower corner of the bounding box.
-        Vector2<T> lowerCorner;
+        Vector2<T> LowestPoint;
 
         //! Upper corner of the bounding box.
-        Vector2<T> upperCorner;
+        Vector2<T> HighestPoint;
 
         //! Default constructor.
         BoundingBox();

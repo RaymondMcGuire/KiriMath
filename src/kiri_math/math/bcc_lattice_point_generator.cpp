@@ -25,17 +25,17 @@ namespace kiri_math
         bool shouldQuit = false;
         for (int k = 0; k * halfSpacing <= boxDepth && !shouldQuit; ++k)
         {
-            position.z = k * halfSpacing + boundingBox.lowerCorner.z;
+            position.z = k * halfSpacing + boundingBox.LowestPoint.z;
 
             double offset = (hasOffset) ? halfSpacing : 0.0;
 
             for (int j = 0; j * spacing + offset <= boxHeight && !shouldQuit; ++j)
             {
-                position.y = j * spacing + offset + boundingBox.lowerCorner.y;
+                position.y = j * spacing + offset + boundingBox.LowestPoint.y;
 
                 for (int i = 0; i * spacing + offset <= boxWidth; ++i)
                 {
-                    position.x = i * spacing + offset + boundingBox.lowerCorner.x;
+                    position.x = i * spacing + offset + boundingBox.LowestPoint.x;
                     if (!callback(position))
                     {
                         shouldQuit = true;
@@ -64,17 +64,17 @@ namespace kiri_math
         bool shouldQuit = false;
         for (int k = 0; k * halfSpacing <= boxDepth && !shouldQuit; ++k)
         {
-            position.z = k * halfSpacing + boundingBox.lowerCorner.z;
+            position.z = k * halfSpacing + boundingBox.LowestPoint.z;
 
             float offset = (hasOffset) ? halfSpacing : 0.0f;
 
             for (int j = 0; j * spacing + offset <= boxHeight && !shouldQuit; ++j)
             {
-                position.y = j * spacing + offset + boundingBox.lowerCorner.y;
+                position.y = j * spacing + offset + boundingBox.LowestPoint.y;
 
                 for (int i = 0; i * spacing + offset <= boxWidth; ++i)
                 {
-                    position.x = i * spacing + offset + boundingBox.lowerCorner.x;
+                    position.x = i * spacing + offset + boundingBox.LowestPoint.x;
                     if (!callback(position))
                     {
                         shouldQuit = true;
@@ -100,15 +100,15 @@ namespace kiri_math
         bool shouldQuit = false;
         for (int k = 0; k * spacing <= boxDepth && !shouldQuit; ++k)
         {
-            position.z = k * spacing + boundingBox.lowerCorner.z;
+            position.z = k * spacing + boundingBox.LowestPoint.z;
 
             for (int j = 0; j * spacing <= boxHeight && !shouldQuit; ++j)
             {
-                position.y = j * spacing + boundingBox.lowerCorner.y;
+                position.y = j * spacing + boundingBox.LowestPoint.y;
 
                 for (int i = 0; i * spacing <= boxWidth; ++i)
                 {
-                    position.x = i * spacing + boundingBox.lowerCorner.x;
+                    position.x = i * spacing + boundingBox.LowestPoint.x;
                     if (!callback(position))
                     {
                         shouldQuit = true;

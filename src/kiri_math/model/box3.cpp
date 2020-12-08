@@ -14,9 +14,9 @@ using namespace kiri_math;
 Box3::Box3(const Transform3 &transform, bool isNormalFlipped)
     : Surface3(transform, isNormalFlipped) {}
 
-Box3::Box3(const Vector3D &lowerCorner, const Vector3D &upperCorner,
+Box3::Box3(const Vector3D &LowestPoint, const Vector3D &HighestPoint,
            const Transform3 &transform, bool isNormalFlipped)
-    : Box3(BoundingBox3D(lowerCorner, upperCorner), transform,
+    : Box3(BoundingBox3D(LowestPoint, HighestPoint), transform,
            isNormalFlipped) {}
 
 Box3::Box3(const BoundingBox3D &boundingBox, const Transform3 &transform,
@@ -29,12 +29,12 @@ Vector3D Box3::closestPointLocal(const Vector3D &otherPoint) const
 {
     if (bound.contains(otherPoint))
     {
-        Plane3 planes[6] = {Plane3(Vector3D(1, 0, 0), bound.upperCorner),
-                            Plane3(Vector3D(0, 1, 0), bound.upperCorner),
-                            Plane3(Vector3D(0, 0, 1), bound.upperCorner),
-                            Plane3(Vector3D(-1, 0, 0), bound.lowerCorner),
-                            Plane3(Vector3D(0, -1, 0), bound.lowerCorner),
-                            Plane3(Vector3D(0, 0, -1), bound.lowerCorner)};
+        Plane3 planes[6] = {Plane3(Vector3D(1, 0, 0), bound.HighestPoint),
+                            Plane3(Vector3D(0, 1, 0), bound.HighestPoint),
+                            Plane3(Vector3D(0, 0, 1), bound.HighestPoint),
+                            Plane3(Vector3D(-1, 0, 0), bound.LowestPoint),
+                            Plane3(Vector3D(0, -1, 0), bound.LowestPoint),
+                            Plane3(Vector3D(0, 0, -1), bound.LowestPoint)};
 
         Vector3D result = planes[0].closestPoint(otherPoint);
         double distanceSquared = result.distanceSquaredTo(otherPoint);
@@ -56,18 +56,18 @@ Vector3D Box3::closestPointLocal(const Vector3D &otherPoint) const
     }
     else
     {
-        return clamp(otherPoint, bound.lowerCorner, bound.upperCorner);
+        return clamp(otherPoint, bound.LowestPoint, bound.HighestPoint);
     }
 }
 
 Vector3D Box3::closestNormalLocal(const Vector3D &otherPoint) const
 {
-    Plane3 planes[6] = {Plane3(Vector3D(1, 0, 0), bound.upperCorner),
-                        Plane3(Vector3D(0, 1, 0), bound.upperCorner),
-                        Plane3(Vector3D(0, 0, 1), bound.upperCorner),
-                        Plane3(Vector3D(-1, 0, 0), bound.lowerCorner),
-                        Plane3(Vector3D(0, -1, 0), bound.lowerCorner),
-                        Plane3(Vector3D(0, 0, -1), bound.lowerCorner)};
+    Plane3 planes[6] = {Plane3(Vector3D(1, 0, 0), bound.HighestPoint),
+                        Plane3(Vector3D(0, 1, 0), bound.HighestPoint),
+                        Plane3(Vector3D(0, 0, 1), bound.HighestPoint),
+                        Plane3(Vector3D(-1, 0, 0), bound.LowestPoint),
+                        Plane3(Vector3D(0, -1, 0), bound.LowestPoint),
+                        Plane3(Vector3D(0, 0, -1), bound.LowestPoint)};
 
     if (bound.contains(otherPoint))
     {
@@ -93,7 +93,7 @@ Vector3D Box3::closestNormalLocal(const Vector3D &otherPoint) const
     else
     {
         Vector3D closestPoint =
-            clamp(otherPoint, bound.lowerCorner, bound.upperCorner);
+            clamp(otherPoint, bound.LowestPoint, bound.HighestPoint);
         Vector3D closestPointToInputPoint = otherPoint - closestPoint;
         Vector3D closestNormal = planes[0].normal;
         double maxCosineAngle = closestNormal.dot(closestPointToInputPoint);
@@ -138,33 +138,33 @@ BoundingBox3D Box3::boundingBoxLocal() const { return bound; }
 
 Box3::Builder Box3::builder() { return Builder(); }
 
-Box3::Builder &Box3::Builder::withLowerCorner(const Vector3D &pt)
+Box3::Builder &Box3::Builder::withLowestPoint(const Vector3D &pt)
 {
-    _lowerCorner = pt;
+    mLowestPoint = pt;
     return *this;
 }
 
-Box3::Builder &Box3::Builder::withUpperCorner(const Vector3D &pt)
+Box3::Builder &Box3::Builder::withHighestPoint(const Vector3D &pt)
 {
-    _upperCorner = pt;
+    mHighestPoint = pt;
     return *this;
 }
 
 Box3::Builder &Box3::Builder::withBoundingBox(const BoundingBox3D &bbox)
 {
-    _lowerCorner = bbox.lowerCorner;
-    _upperCorner = bbox.upperCorner;
+    mLowestPoint = bbox.LowestPoint;
+    mHighestPoint = bbox.HighestPoint;
     return *this;
 }
 
 Box3 Box3::Builder::build() const
 {
-    return Box3(_lowerCorner, _upperCorner, _transform, _isNormalFlipped);
+    return Box3(mLowestPoint, mHighestPoint, _transform, _isNormalFlipped);
 }
 
 Box3Ptr Box3::Builder::makeShared() const
 {
     return std::shared_ptr<Box3>(
-        new Box3(_lowerCorner, _upperCorner, _transform, _isNormalFlipped),
+        new Box3(mLowestPoint, mHighestPoint, _transform, _isNormalFlipped),
         [](Box3 *obj) { delete obj; });
 }

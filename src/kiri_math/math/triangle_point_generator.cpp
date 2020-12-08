@@ -18,13 +18,13 @@ void TrianglePointGenerator::forEachPoint(
     bool shouldQuit = false;
     for (int j = 0; j * ySpacing <= boxHeight && !shouldQuit; ++j)
     {
-        position.y = j * ySpacing + boundingBox.lowerCorner.y;
+        position.y = j * ySpacing + boundingBox.LowestPoint.y;
 
         double offset = (hasOffset) ? halfSpacing : 0.0;
 
         for (int i = 0; i * spacing + offset <= boxWidth && !shouldQuit; ++i)
         {
-            position.x = i * spacing + offset + boundingBox.lowerCorner.x;
+            position.x = i * spacing + offset + boundingBox.LowestPoint.x;
             if (!callback(position))
             {
                 shouldQuit = true;
