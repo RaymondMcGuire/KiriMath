@@ -12,4 +12,4 @@ KiriMath is a mathematics library for graphics software
 
 # Acknowledgements
 
-This project heavily borrowed from [Fluid Engine Dev - Jet](https://github.com/doyubkim/fluid-engine-dev)
+The source code of this project is heavily borrowed from [Fluid Engine Dev - Jet](https://github.com/doyubkim/fluid-engine-dev)
