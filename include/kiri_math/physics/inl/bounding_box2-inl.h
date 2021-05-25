@@ -81,6 +81,22 @@ namespace kiri_math
     }
 
     template <typename T>
+    bool BoundingBox<T, 2>::contains(const BoundingBox &other) const
+    {
+        if (HighestPoint.x < other.HighestPoint.x || LowestPoint.x > other.LowestPoint.x)
+        {
+            return false;
+        }
+
+        if (HighestPoint.y < other.HighestPoint.y || LowestPoint.y > other.LowestPoint.y)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    template <typename T>
     bool BoundingBox<T, 2>::intersects(const Ray2<T> &ray) const
     {
         T tMin = 0;

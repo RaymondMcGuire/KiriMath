@@ -1,7 +1,7 @@
 /*** 
  * @Author: Xu.WANG
  * @Date: 2020-10-18 02:35:55
- * @LastEditTime: 2020-10-21 18:31:40
+ * @LastEditTime: 2021-05-25 01:58:21
  * @LastEditors: Xu.WANG
  * @Description: 
  * @FilePath: \Kiri\KiriMath\include\kiri_math\kiri_math_opengl.h
@@ -33,6 +33,7 @@
 #include <kiri_math/math/math_utils.h>
 
 // physics
+#include <kiri_math/physics/bounding_box2.h>
 #include <kiri_math/physics/bounding_box3.h>
 #include <kiri_math/physics/collider3.h>
 #include <kiri_math/physics/rigid_body_collider3.h>

@@ -67,6 +67,9 @@ namespace kiri_math
         //! Returns true if the input point is inside of this box.
         bool contains(const Vector2<T> &point) const;
 
+        //! Returns true if the input box is inside of this box.
+        bool contains(const BoundingBox &other) const;
+
         //! Returns true if the input ray is intersecting with this box.
         bool intersects(const Ray2<T> &ray) const;
 
