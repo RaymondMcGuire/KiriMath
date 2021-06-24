@@ -278,6 +278,12 @@ namespace kiri_math
     }
 
     template <typename T>
+    T Vector<T, 2>::angle(const Vector<T, 2> &v1, const Vector<T, 2> &v2)
+    {
+        return std::acos((v1.dot(v2)) / (v1.length() * v2.length()));
+    }
+
+    template <typename T>
     size_t Vector<T, 2>::dominantAxis() const
     {
         return (std::fabs(x) > std::fabs(y)) ? 0 : 1;

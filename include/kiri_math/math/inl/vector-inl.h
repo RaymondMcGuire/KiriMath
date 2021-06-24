@@ -83,7 +83,8 @@ namespace kiri_math
 
         // Parallel evaluation of the expression
         const E &expression = other();
-        forEachIndex([&](size_t i) { _elements[i] = expression[i]; });
+        forEachIndex([&](size_t i)
+                     { _elements[i] = expression[i]; });
     }
 
     template <typename T, size_t N>
@@ -235,18 +236,16 @@ namespace kiri_math
     template <typename T, size_t N>
     size_t Vector<T, N>::dominantAxis() const
     {
-        auto iter = std::max_element(begin(), end(), [](const T &a, const T &b) {
-            return std::fabs(a) < std::fabs(b);
-        });
+        auto iter = std::max_element(begin(), end(), [](const T &a, const T &b)
+                                     { return std::fabs(a) < std::fabs(b); });
         return iter - begin();
     }
 
     template <typename T, size_t N>
     size_t Vector<T, N>::subminantAxis() const
     {
-        auto iter = std::max_element(begin(), end(), [](const T &a, const T &b) {
-            return std::fabs(a) > std::fabs(b);
-        });
+        auto iter = std::max_element(begin(), end(), [](const T &a, const T &b)
+                                     { return std::fabs(a) > std::fabs(b); });
         return iter - begin();
     }
 

@@ -198,6 +198,9 @@ namespace kiri_math
         //! Returns the squared distance to the other vector.
         T distanceSquaredTo(const Vector &other) const;
 
+        //! Returns the inner angle (radians) between vector1 and vector2
+        static T angle(const Vector &v1, const Vector &v2);
+
         //! Returns the reflection vector to the surface with given surface normal.
         Vector reflected(const Vector &normal) const;
 
