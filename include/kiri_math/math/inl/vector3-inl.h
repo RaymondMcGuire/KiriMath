@@ -1,8 +1,11 @@
-/*
- * @Author: Doyub Kim  
- * @Date: 2020-03-20 17:25:58 
- * @Last Modified by: Xu.Wang
- * @Last Modified time: 2020-03-20 20:29:52
+/***
+ * @Author: Xu.WANG raymondmgwx@gmail.com
+ * @Date: 2020-12-08 18:43:49
+ * @LastEditors: Xu.WANG raymondmgwx@gmail.com
+ * @LastEditTime: 2022-09-18 17:21:04
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\math\inl\vector3-inl.h
+ * @Description:
+ * @Copyright (c) 2022 by Xu.WANG raymondmgwx@gmail.com, All Rights Reserved.
  */
 
 #ifndef _KIRI_MATH_DETAIL_VECTOR3_INL_H_
@@ -23,6 +26,14 @@ namespace kiri_math
     Vector<T, 3>::Vector(const std::initializer_list<U> &lst)
     {
         set(lst);
+    }
+
+    template <typename T>
+    void Vector<T, 3>::init(const Vector<T, 4> &v)
+    {
+        x = v.x;
+        y = v.y;
+        z = v.z;
     }
 
     // Basic setters

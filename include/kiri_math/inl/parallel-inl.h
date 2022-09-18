@@ -1,12 +1,12 @@
-/*** 
- * @Author: Xu.WANG
- * @Date: 2020-10-18 02:04:46
- * @LastEditTime: 2020-10-22 13:06:44
- * @LastEditors: Xu.WANG
- * @Description: 
+/***
+ * @Author: Xu.WANG raymondmgwx@gmail.com
+ * @Date: 2020-12-08 18:43:49
+ * @LastEditors: Xu.WANG raymondmgwx@gmail.com
+ * @LastEditTime: 2022-09-18 17:30:32
  * @FilePath: \Kiri\KiriMath\include\kiri_math\inl\parallel-inl.h
+ * @Description:
+ * @Copyright (c) 2022 by Xu.WANG raymondmgwx@gmail.com, All Rights Reserved.
  */
-
 #ifndef _KIRI_MATH_DETAIL_PARALLEL_INL_H_
 #define _KIRI_MATH_DETAIL_PARALLEL_INL_H_
 
@@ -17,15 +17,6 @@
 #include <functional>
 #include <future>
 #include <vector>
-
-// #ifdef KIRI_TASKING_TBB
-// #include <tbb/parallel_for.h>
-// #include <tbb/parallel_reduce.h>
-// #include <tbb/parallel_sort.h>
-// #include <tbb/task.h>
-// #elif defined(KIRI_TASKING_CPP11THREADS)
-// #include <thread>
-// #endif
 
 namespace kiri_math
 {
@@ -74,10 +65,10 @@ namespace kiri_math
             auto task = new package_t(std::forward<TASK_T>(fcn));
             auto future = task->get_future();
 
-            schedule([=]() {
+            schedule([=]()
+                     {
                 (*task)();
-                delete task;
-            });
+                delete task; });
 
             return future;
         }
@@ -127,7 +118,8 @@ namespace kiri_math
             }
 
             // Copy sorted temp array into main array, a
-            parallelFor(kZeroSize, size, [&](size_t i) { a[i] = temp[i]; });
+            parallelFor(kZeroSize, size, [&](size_t i)
+                        { a[i] = temp[i]; });
         }
 
         template <typename RandomIterator, typename RandomIterator2,
@@ -147,17 +139,18 @@ namespace kiri_math
 
                 auto launchRange = [compareFunction](RandomIterator begin, size_t k2,
                                                      RandomIterator2 temp,
-                                                     unsigned int numThreads) {
+                                                     unsigned int numThreads)
+                {
                     parallelMergeSort(begin, k2, temp, numThreads, compareFunction);
                 };
 
                 pool.emplace_back(internal::async(
-                    [=]() { launchRange(a, size / 2, temp, numThreads / 2); }));
+                    [=]()
+                    { launchRange(a, size / 2, temp, numThreads / 2); }));
 
-                pool.emplace_back(internal::async([=]() {
-                    launchRange(a + size / 2, size - size / 2, temp + size / 2,
-                                numThreads - numThreads / 2);
-                }));
+                pool.emplace_back(internal::async([=]()
+                                                  { launchRange(a + size / 2, size - size / 2, temp + size / 2,
+                                                                numThreads - numThreads / 2); }));
 
                 // Wait for jobs to finish
                 for (auto &f : pool)
@@ -186,7 +179,8 @@ namespace kiri_math
 
         size_t size = static_cast<size_t>(diff);
         parallelFor(
-            kZeroSize, size, [begin, value](size_t i) { begin[i] = value; },
+            kZeroSize, size, [begin, value](size_t i)
+            { begin[i] = value; },
             policy);
     }
 
@@ -228,7 +222,8 @@ namespace kiri_math
         slice = std::max(slice, IndexType(1));
 
         // [Helper] Inner loop
-        auto launchRange = [&func](IndexType k1, IndexType k2) {
+        auto launchRange = [&func](IndexType k1, IndexType k2)
+        {
             for (IndexType k = k1; k < k2; k++)
             {
                 func(k);
@@ -306,7 +301,8 @@ namespace kiri_math
         if (policy == ExecutionPolicy::kParallel)
         {
             tbb::parallel_for(tbb::blocked_range<IndexType>(start, end),
-                              [&func](const tbb::blocked_range<IndexType> &range) {
+                              [&func](const tbb::blocked_range<IndexType> &range)
+                              {
                                   func(range.begin(), range.end());
                               });
         }
@@ -336,13 +332,15 @@ namespace kiri_math
         IndexType i2 = std::min(start + slice, end);
         for (unsigned int i = 0; i + 1 < numThreads && i1 < end; ++i)
         {
-            pool.emplace_back(internal::async([=]() { func(i1, i2); }));
+            pool.emplace_back(internal::async([=]()
+                                              { func(i1, i2); }));
             i1 = i2;
             i2 = std::min(i2 + slice, end);
         }
         if (i1 < end)
         {
-            pool.emplace_back(internal::async([=]() { func(i1, end); }));
+            pool.emplace_back(internal::async([=]()
+                                              { func(i1, end); }));
         }
 
         // Wait for jobs to finish
@@ -363,7 +361,8 @@ namespace kiri_math
     {
         parallelFor(
             beginIndexY, endIndexY,
-            [&](IndexType j) {
+            [&](IndexType j)
+            {
                 for (IndexType i = beginIndexX; i < endIndexX; ++i)
                 {
                     function(i, j);
@@ -379,7 +378,8 @@ namespace kiri_math
     {
         parallelRangeFor(
             beginIndexY, endIndexY,
-            [&](IndexType jBegin, IndexType jEnd) {
+            [&](IndexType jBegin, IndexType jEnd)
+            {
                 function(beginIndexX, endIndexX, jBegin, jEnd);
             },
             policy);
@@ -393,7 +393,8 @@ namespace kiri_math
     {
         parallelFor(
             beginIndexZ, endIndexZ,
-            [&](IndexType k) {
+            [&](IndexType k)
+            {
                 for (IndexType j = beginIndexY; j < endIndexY; ++j)
                 {
                     for (IndexType i = beginIndexX; i < endIndexX; ++i)
@@ -413,7 +414,8 @@ namespace kiri_math
     {
         parallelRangeFor(
             beginIndexZ, endIndexZ,
-            [&](IndexType kBegin, IndexType kEnd) {
+            [&](IndexType kBegin, IndexType kEnd)
+            {
                 function(beginIndexX, endIndexX, beginIndexY,
                          endIndexY, kBegin, kEnd);
             },
@@ -437,7 +439,8 @@ namespace kiri_math
             return tbb::parallel_reduce(
                 tbb::blocked_range<IndexType>(start, end), identity,
                 [&func](const tbb::blocked_range<IndexType> &range,
-                        const Value &init) {
+                        const Value &init)
+                {
                     return func(range.begin(), range.end(), init);
                 },
                 reduce);
@@ -466,7 +469,8 @@ namespace kiri_math
         std::vector<Value> results(numThreads, identity);
 
         // [Helper] Inner loop
-        auto launchRange = [&](IndexType k1, IndexType k2, unsigned int tid) {
+        auto launchRange = [&](IndexType k1, IndexType k2, unsigned int tid)
+        {
             results[tid] = func(k1, k2, identity);
         };
 
@@ -478,14 +482,16 @@ namespace kiri_math
         unsigned int tid = 0;
         for (; tid + 1 < numThreads && i1 < end; ++tid)
         {
-            pool.emplace_back(internal::async([=]() { launchRange(i1, i2, tid); }));
+            pool.emplace_back(internal::async([=]()
+                                              { launchRange(i1, i2, tid); }));
             i1 = i2;
             i2 = std::min(i2 + slice, end);
         }
         if (i1 < end)
         {
             pool.emplace_back(
-                internal::async([=]() { launchRange(i1, end, tid); }));
+                internal::async([=]()
+                                { launchRange(i1, end, tid); }));
         }
 
         // Wait for jobs to finish

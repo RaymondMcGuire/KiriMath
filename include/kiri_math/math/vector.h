@@ -1,8 +1,11 @@
-/*
- * @Author: Doyub Kim 
- * @Date: 2020-03-17 16:10:26 
- * @Last Modified by: Xu.Wang
- * @Last Modified time: 2020-03-20 20:10:15
+/***
+ * @Author: Xu.WANG raymondmgwx@gmail.com
+ * @Date: 2020-10-18 01:04:50
+ * @LastEditors: Xu.WANG raymondmgwx@gmail.com
+ * @LastEditTime: 2022-09-18 17:12:18
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\math\vector.h
+ * @Description:
+ * @Copyright (c) 2022 by Xu.WANG raymondmgwx@gmail.com, All Rights Reserved.
  */
 #ifndef _KIRI_MATH_VECTOR_H_
 #define _KIRI_MATH_VECTOR_H_
@@ -64,6 +67,8 @@ namespace kiri_math
         Vector(const Vector &other);
 
         // MARK: Basic setters
+
+        void init(const Vector<T, N + 1> &other);
 
         //! Set vector instance with initializer list.
         template <typename U>

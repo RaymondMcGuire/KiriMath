@@ -1,8 +1,11 @@
-/*
- * @Author: Doyub Kim 
- * @Date: 2020-03-17 16:10:18 
- * @Last Modified by: Xu.Wang
- * @Last Modified time: 2020-03-20 20:17:11
+/***
+ * @Author: Xu.WANG raymondmgwx@gmail.com
+ * @Date: 2020-10-18 01:04:50
+ * @LastEditors: Xu.WANG raymondmgwx@gmail.com
+ * @LastEditTime: 2022-09-18 17:20:05
+ * @FilePath: \Kiri\KiriMath\include\kiri_math\math\vector3.h
+ * @Description:
+ * @Copyright (c) 2022 by Xu.WANG raymondmgwx@gmail.com, All Rights Reserved.
  */
 #ifndef _KIRI_MATH_VECTOR3_H_
 #define _KIRI_MATH_VECTOR3_H_
@@ -60,6 +63,7 @@ namespace kiri_math
         constexpr Vector(const Vector &v) : x(v.x), y(v.y), z(v.z) {}
 
         // MARK: Basic setters
+        void init(const Vector<T, 4> &pt);
 
         //! Set all x, y, and z components to \p s.
         void set(T s);
